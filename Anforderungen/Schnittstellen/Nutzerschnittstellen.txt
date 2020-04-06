@@ -1,0 +1,47 @@
+# Haupmenü
+Was wollen Sie tun?
+---------------------
+1) Sensor abfragen
+2) Aktoren ansteuern
+
+0) Beenden
+
+
+# Submenü - 1
+Sensor Abfragen
+-------------------
+1) Temperatur
+2) Fenster
+
+0) Zurück zum Hauptmenü
+
+
+# Submenü - 1.1
+Wählen Sie einen Raum:
+-------------------
+1) Raum 1
+.  
+.
+.
+
+0) Zurück zur Sensorauswahl
+
+
+
+# Submenü - 2
+Aktoren Ansteuerung
+-------------------
+1) Lampe
+
+0) Zurück zum Hauptmenü
+
+
+# Submenü - 2.1
+Wählen Sie einen Raum:
+-------------------
+1) Raum 1
+.  
+.
+.
+
+0) Zurück zur Aktorauswahl

@@ -1,0 +1,43 @@
+Dateiformate.
+
+# Sensor
+Name der Datei:		sensor.csv
+
+Speicherort: 		<Applikationsdaten>/logs/
+
+Lebenszyklus:		wöchenliche Archivierung unter logs/archive/<datum>.csv, danach löschen und neu anlegen
+					Backup vor dem Schreibzugriff: sensor_backup.csv
+					
+Format:				ASCII-Datei, pro Schließvorgang eine Zeile, beendet mit Zeilenumbruch
+					yyyymmtt hhmmss transponderID tuerID auf/zu
+					transponderID: 12-stellige unsigned Integer
+					server_status: string
+					failure_code: 1-stellige Integer Wert, 0 = kein Fehler
+					sensor_id: 6-stellige unsigned Integer
+					sensor_state: 1-stellige unsigned Integer (bit), 1 auf, 0 zu, 2 keine Abfrage zum Sensor (unbekannt)
+
+
+					
+					
+# Aktor
+Name der Datei:		aktor.csv
+
+Speicherort: 		<Applikationsdaten>/logs/
+
+Lebenszyklus:		wöchenliche Archivierung unter logs/archive/<datum>.csv, danach löschen und neu anlegen
+					Backup vor dem Schreibzugriff: aktor_backup.csv
+					
+Format:				ASCII-Datei, pro Schließvorgang eine Zeile, beendet mit Zeilenumbruch
+					yyyymmtt hhmmss transponderID tuerID auf/zu
+					transponderID: 12-stellige unsigned Integer
+					server_status: string
+					failure_code: 1-stellige Integer Wert, 0 = kein Fehler
+					aktor_id: 6-stellige unsigned Integer
+					action: 1-stellige unsigned Integer (bit), 1 auf, 0 zu
+
+
+		
+
+
+
+

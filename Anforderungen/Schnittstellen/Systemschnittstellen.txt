@@ -1,0 +1,25 @@
+# Client-Server-Kommunikation
+-Format für Anfragen
+Zeichenkette in einfachen char, maximale Länge 1024 Zeichen
+Bestandteile: <Befehl>_<Argumente>
+
+Befehl: 
+Sensor: GET
+Aktor: SET
+
+Argumente: 
+Sensor: <Art des Sensors>_<raum>
+Aktor : <Art des Aktors>_<raum>_<Action>
+
+
+-Format für Antworten
+Zeichenkette in einfachen char, maximale Länge 1024 Zeichen
+Bestandteile: <Fehlernummer>_<Argumente>
+
+Fehlernummer: 
+0: Kein Fehler
+...
+
+Argumente: 
+Sensor: <Art des Sensors>_<raum>_<sensor state>
+Aktor : <Art des Aktors>_<raum>_<actor state>
