@@ -8,15 +8,15 @@ Was wollen Sie tun?
 
 
 # Submenü - 1
-Sensor Abfragen
+Sensor Abfragen (Sensoren)
 -------------------
-1) Temperatur
-2) Fenster
+1) Temperatur-Sensor
+2) Kontakt-Sensor (Fenster)
 
 0) Zurück zum Hauptmenü
 
 
-# Submenü - 1.1
+# Submenü - 1.1  (Für Temperatur-Sensor)
 Wählen Sie einen Raum:
 -------------------
 1) Raum 1
@@ -25,6 +25,21 @@ Wählen Sie einen Raum:
 .
 
 0) Zurück zur Sensorauswahl
+
+# Submenü - 1.2 (Kontakt-Sensor)
+Wählen Sie ein Raum aus:
+-------------------
+1) Raum 1
+.
+.
+.
+
+0) Zurück zur Sensorauswahl
+
+# Submenü - 1.2.1 (Fensterauswahl)
+Wählen Sie ein Fenster aus:
+1) FensterID
+
 
 
 
