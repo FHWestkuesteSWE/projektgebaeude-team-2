@@ -9,6 +9,9 @@ Server::Server()
 }
 
 void Server::start(char port[]) {
+	
+	// Start server using function from BasicServer
+	BasicServer::start(port);
 
 }
 
