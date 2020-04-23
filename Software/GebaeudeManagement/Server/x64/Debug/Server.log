@@ -1,7 +1,0 @@
-﻿  Server.cpp
-C:\Users\phili\source\repos\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(16,55): warning C4267:  "Argument": Konvertierung von "size_t" nach "const _Ty", Datenverlust möglich
-C:\Users\phili\source\repos\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(16,55): warning C4267:         with
-C:\Users\phili\source\repos\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(16,55): warning C4267:         [
-C:\Users\phili\source\repos\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(16,55): warning C4267:             _Ty=int
-C:\Users\phili\source\repos\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(16,55): warning C4267:         ]
-  Server.vcxproj -> C:\Users\phili\source\repos\projektgebaeude-team-2\Software\GebaeudeManagement\x64\Debug\Server.exe
