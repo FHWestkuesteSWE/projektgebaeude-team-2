@@ -29,13 +29,8 @@ int main(int argc, char* argv[])
             cout << ans << endl;
             break;
 
-        case 'a': // req zusammenbauen
-            strncpy_s(req, "get Temp", 10);
-            c.sendRequest(req, ans);
-            cout << ans << endl;
-            break;
-
-        default:;
+        default:
+            ;
 
         }
     } while (wahl != 'e');
