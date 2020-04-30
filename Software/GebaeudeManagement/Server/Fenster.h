@@ -1,15 +1,20 @@
 #pragma once
 
-#include "Raum.h"
 #include "KontakSensor.h"
+#include <string>
 
 class Fenster {
-public:
 	string name;
-	Fenster(std::string p_name);
-	~Fenster();
 
-	// For redundancy, use 2 sensors
-	KontakSensor kontaktsens[2];
+public:
+	void setName(string p_name);
+	
+	string getName();
+
+	Fenster();
+
+	KontakSensor kontaksensor[2];
+
+	KontakSensor* konstaksensor_ptr;
 };
 

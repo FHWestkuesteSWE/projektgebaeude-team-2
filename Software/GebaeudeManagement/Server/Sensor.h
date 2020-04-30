@@ -12,11 +12,15 @@ private:
 
 public:
 
+	Sensor();
+	~Sensor();
+
+protected:
 	double getValue();
 	bool getStatus();
 
-	Sensor(int p_id);
-	~Sensor();
-
+	void setId(int p_id);
+	void setStatus(bool p_status);
+	void setValue(double p_value);
 };
 

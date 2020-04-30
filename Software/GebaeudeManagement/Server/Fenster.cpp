@@ -1,9 +1,18 @@
 #include "Fenster.h"
+#include <iostream>
 
-Fenster::Fenster(string p_name) {
-	name = p_name;
+using namespace std;
+
+Fenster::Fenster() {
+	//this->konstaksensor_ptr = kontaksensor;
+	this->konstaksensor_ptr = kontaksensor;
 }
 
-Fenster::~Fenster() {
 
+void Fenster::setName(string p_name) {
+	this->name = p_name;
+}
+
+string Fenster::getName() {
+	return this->name;
 }
