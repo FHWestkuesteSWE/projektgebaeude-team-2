@@ -95,8 +95,8 @@
     <coordinates>
       <x>322</x>
       <y>364</y>
-      <w>147</w>
-      <h>105</h>
+      <w>168</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Raum
 --
@@ -104,11 +104,10 @@
 --
 + getName() : string
 + fenster[2] : Fenster
-+ fenster_ptr : Fenster*
-
++ temp_sens: TemperaturSensor
++ lamp[2] : Lampe
 + Raum(p_name: string)
 + ~Raum()
-
 
 
 
@@ -152,15 +151,15 @@
     <id>Relation</id>
     <coordinates>
       <x>343</x>
-      <y>462</y>
+      <y>469</y>
       <w>42</w>
-      <h>84</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>1
 
 lt=&lt;&lt;&lt;&lt;&lt;-
 m2=  1..*</panel_attributes>
-    <additional_attributes>40.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>40.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -250,9 +249,9 @@ lt=&lt;&lt;&lt;&lt;&lt;-
     <id>Relation</id>
     <coordinates>
       <x>434</x>
-      <y>462</y>
+      <y>469</y>
       <w>91</w>
-      <h>91</h>
+      <h>84</h>
     </coordinates>
     <panel_attributes>1
 
@@ -260,7 +259,7 @@ lt=&lt;&lt;&lt;&lt;&lt;-
 
 lt=&lt;&lt;&lt;&lt;&lt;-
 m2=  1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;90.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
