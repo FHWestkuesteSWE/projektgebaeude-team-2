@@ -2,9 +2,9 @@
 
 #include <string>
 #include "Fenster.h"
+#include "TemperaturSensor.h"
+#include "Lampe.h"
 
-//#include "Lampe.h"
-//#include "TemperaturSensor.h"
 
 using namespace std;
 
@@ -22,9 +22,12 @@ public:
 
 	// Every room has 2 windows
 	Fenster fenster[2];
-	
-	// Pointer to the windows(array)
-	Fenster* fenster_ptr;
+
+	// Every room has 1 temperature sensor
+	TemperaturSensor temp_sens;
+
+	// Every room has 2 lamps
+	Lampe lamp[2];
 	
 };
 

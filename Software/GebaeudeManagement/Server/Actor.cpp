@@ -1,21 +1,21 @@
 #include "Actor.h"
 
 Actor::Actor() {
+	this->id = 0;
+	this->state = false;
 }
 
-Actor::Actor(int _id) {
-	id = _id;
-}
 
 Actor::~Actor() {
 
 }
 
-void Actor::setState(bool _action) {
+void Actor::setId(int p_id) {
+	this->id = p_id;
+}
 
-	// Set new state to user action, e.g On (True), Off (False)
-	state = _action;
-
+void Actor::setState(bool p_action) {
+	this->state = p_action;
 }
 
 bool Actor::getState() {

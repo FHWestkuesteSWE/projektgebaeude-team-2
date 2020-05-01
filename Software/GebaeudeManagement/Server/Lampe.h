@@ -3,10 +3,17 @@
 #include "Actor.h"
 
 class Lampe : Actor {
-public:
-
+private:
 	string name;
-	Lampe(char p_name[]);
-	~Lampe();
-};
 
+public:
+	Lampe();
+	~Lampe();
+
+	void setState(bool p_action);
+	bool getState();
+
+	void setName(string p_name);
+	string getName();
+
+};

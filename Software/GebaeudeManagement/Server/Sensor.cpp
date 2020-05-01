@@ -1,9 +1,9 @@
 #include "Sensor.h"
 
 Sensor::Sensor() {
-	id = 0;
-	status = false;
-	value = 0.0;
+	this->id = 0;
+	this->status = false;
+	this->value = 0.0;
 }
 
 Sensor::~Sensor() {
@@ -18,7 +18,7 @@ bool Sensor::getStatus() {
 }
 
 void Sensor::setId(int p_id) {
-	id = p_id;
+	this->id = p_id;
 }
 
 void Sensor::setStatus(bool p_status) {

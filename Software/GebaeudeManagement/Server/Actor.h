@@ -6,17 +6,16 @@ using namespace std;
 
 class Actor {
 private:
-
 	int id;
 	bool state;
 
 public:
 
-	void setState(bool _action);
+	void setId(int p_id);
+	void setState(bool p_action);
 	bool getState();
 
 	Actor();
-	Actor(int _id);
 	~Actor();
 
 };
