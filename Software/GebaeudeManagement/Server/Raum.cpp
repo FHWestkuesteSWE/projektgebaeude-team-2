@@ -1,35 +1,82 @@
 #include "Raum.h"
+#include <iostream>
 
-Raum::Raum(string p_name) {
 
+using namespace std;
+
+Raum::Raum(string p_name, string fensterName[], int lengthFensterArr, string lampeName[], int lenghtLampArr) {
+	// Now array fensterName is decayed as pointer
+	// Because the array in parameter decayed as pointer, there is no change to get the length of it.
+	// It is automaticly became an address of the array
+
+
+	// Set Raum name
 	this->name = p_name;
 
-	// create Fenster for each Raum
-	fenster[0].setName("Links");
-	fenster[1].setName("Rechts");
+	// Allocate Fenster, Lampe object based on the given length parameter
+	this->fenster = new Fenster[lengthFensterArr];
+	this->lampe = new Lampe[lenghtLampArr];
+
+	// Save total of Fenster and Lampe in variable
+	this->numOfFenster = lengthFensterArr;
+	this->numOfLampe = lenghtLampArr;
 
 
-	fenster[0].setName("FENSTER_0_SENSOR_MAIN");
-	fenster[0].konstaksensor_ptr[1].setName("FENSTER_0_SENSOR_SECOND");
-	fenster[1].konstaksensor_ptr[0].setName("FENSTER_1_SENSOR_MAIN");
-	fenster[1].konstaksensor_ptr[1].setName("FENSTER_1_SENSOR_SECOND");
+	/* ------------ FENSTER ------------ */
+	// Check if Raum has Fenster or not
+	if (fensterName == NULL) {
+		// Raum does not have Fenster
+		cout << "Raum " << this->name << "does not have Fenster" << endl;
+	}
+	else {
+		// Raum has Fenster
+		for (int i = 0; i < lengthFensterArr; i++){
 
+			// Set Fenster name
+			this->fenster[i].setName(fensterName[i]);
+		}
+
+	}
+
+
+	/* ------------ Lampe ------------ */
+	// Check if Raum has Lampe or not
+	if (lampeName == NULL) {
+		// Raum does not have Lampe
+		cout << "Raum " << this->name << "does not have Lampe" << endl;
+	}
+	else {
+		// Raum has Lampe
+		for (int i = 0; i < lengthFensterArr; i++) {
+
+			// Set Lampe name
+			this->lampe[i].setName(lampeName[i]);
+
+			// Set Lampe state to off (false)
+			this->lampe[i].setState(false);
+		}
+
+	}
+
+	/* ------------ TEMPERATURE SENSOR ------------ */
 	// Temp Sensor
 	temp_sens.setName("TEMP_SENSOR_MAIN");
 
-	// Lamp
-	lamp[0].setName("LAMP_1");
-	lamp[1].setName("LAMP_2");
-	lamp[0].setState(true); // on
-	lamp[1].setState(false); // off
 
-	
 }
 
 Raum::~Raum() {
-	//delete fenster_ptr;
+	delete this->fenster;
 }
 
 string Raum::getName() {
 	return this->name;
+}
+
+int Raum::getNumOfFenster() {
+	return this->numOfFenster;
+}
+
+int Raum::getNumOfLampe() {
+	return this->numOfLampe;
 }

@@ -13,8 +13,7 @@ public:
 
 	Fenster();
 
+	// Every Fenster has 2 KontakSensor
 	KontakSensor kontaksensor[2];
-
-	KontakSensor* konstaksensor_ptr;
 };
 

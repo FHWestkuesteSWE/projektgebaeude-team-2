@@ -5,29 +5,34 @@
 #include "TemperaturSensor.h"
 #include "Lampe.h"
 
-
 using namespace std;
 
 class Raum {
 private:
 	string name;
+	int numOfFenster;
+	int numOfLampe;
 
 public:
 	
-	Raum(string p_name);
+	Raum(string p_name, string fensterName[], int lengthFensterArr, string lampeName[], int lenghtLampArr);
 	~Raum();
+
+	int getNumOfFenster();
+	int getNumOfLampe();
 
 	string getName();
 
 
-	// Every room has 2 windows
-	Fenster fenster[2];
+
+	Fenster* fenster;
+	Lampe* lampe;
 
 	// Every room has 1 temperature sensor
 	TemperaturSensor temp_sens;
 
-	// Every room has 2 lamps
-	Lampe lamp[2];
+
+
 	
 };
 

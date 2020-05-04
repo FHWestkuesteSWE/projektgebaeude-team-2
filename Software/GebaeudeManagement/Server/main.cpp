@@ -8,37 +8,46 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
 
-	
-	// Make a new Raum
-	Raum schlafraum("schlafraum");
 
-	string raumName = schlafraum.getName();
-	cout << "Raum - " << raumName << endl;
-	cout << "Raum: " << raumName << " has fenster: " << endl;
-	for (int i = 0; i < 2; i++){
-		string fensterName = schlafraum.fenster[i].getName();
-		cout << "Fenster " << i+1 << ": " << fensterName << endl;
-		cout << "\t Fenster - " << fensterName << " has sensors: " << endl;
-		for (int j = 0; j < 2; j++) {
-			if (j == 0) {
-				schlafraum.fenster[i].konstaksensor_ptr[j].setName("SENSOR_MAIN");
-			}
-			else {
-				schlafraum.fenster[i].konstaksensor_ptr[j].setName("SENSOR_SECOND");
-			}
-			string sensorName = schlafraum.fenster[i].konstaksensor_ptr[j].getName();
-			cout << "\t \t Sensor - " << sensorName << endl;
-		}
-		cout << " " << endl;
+	/* ---------------- SCHLAFZIMMER ---------------- */
+	// Define Raum und Fenster
+	string fensterName[] = { "links", "mitte", "rechts" };
+	unsigned int numOfFenster = sizeof(fensterName) / sizeof(fensterName[0]);
+	string lampeName[] = { "LampTable", "LampLeft", "LampRight" , "LampDoor" };
+	unsigned int numOfLamp = sizeof(lampeName) / sizeof(lampeName[0]);
+
+	Raum schlafzimmer("Schlafzimmer", fensterName, numOfFenster, lampeName, numOfLamp);
+	cout << "RAUM: " << schlafzimmer.getName() << endl;
+
+	for (int i = 0; i < numOfFenster; i++) {
+		// Get Fenster name
+		cout << "Fenster" << "[" << i << "]: " << (schlafzimmer.fenster[i].getName()) << endl;
 	}
 
-	schlafraum.temp_sens.setValue(22.3);
+	cout << endl;
 
-	cout << "Schlafraum temp_sens: " << schlafraum.temp_sens.getValue() << endl;
-	cout << "Sclafraum lamp 1: " << schlafraum.lamp[0].getState() << endl;
-	cout << "Sclafraum lamp 2: " << schlafraum.lamp[1].getState() << endl << endl;
-	
-	
+	for (int i = 0; i < numOfLamp; i++) {
+		// Get Lampe name
+		cout << "Lampe" << "[" << i << "]: " << (schlafzimmer.lampe[i].getName()) << endl;
+	}
+
+	cout << endl;
+
+	cout << "number_of_fenster: " << schlafzimmer.getNumOfFenster() << endl;
+	cout << "number_of_lampe: " << schlafzimmer.getNumOfLampe() << endl;
+
+	cout << endl << endl;
+
+
+
+	/* ---------------- KELLER ---------------- */
+	string lampeNameKeller[] = { "Mitte" };
+	unsigned int numOfLampKeller = sizeof(lampeNameKeller) / sizeof(lampeNameKeller[0]);
+	Raum keller("Keller", NULL, 0, lampeNameKeller, numOfLampKeller);
+	cout << "RAUM: " << keller.getName() << endl;
+	cout << "number_of_fenster: " << keller.getNumOfFenster() << endl;
+	cout << "number_of_lampe: " << keller.getNumOfLampe() << endl;
+
 
 	Server s;
 	s.start(argv[1]);

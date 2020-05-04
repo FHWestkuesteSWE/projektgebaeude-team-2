@@ -4,8 +4,10 @@
 using namespace std;
 
 Fenster::Fenster() {
-	//this->konstaksensor_ptr = kontaksensor;
-	this->konstaksensor_ptr = kontaksensor;
+	
+	// Set KontaktSensor name to _MAIN and _SECOND
+	this->kontaksensor[0].setName("KONTAKT_SENSOR_MAIN");
+	this->kontaksensor[1].setName("KONTAKT_SENSOR_SECOND");
 }
 
 
