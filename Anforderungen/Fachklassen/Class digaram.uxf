@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <help_text/>
+  <help_text>// Uncomment the following line to change the fontsize and font:
+fontsize=10
+// fontfamily=SansSerif //possible: SansSerif,Serif,Monospaced
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Welcome to UMLet!
+//
+// Double-click on elements to add them to the diagram, or to copy them
+// Edit elements by modifying the text in this panel
+// Hold Ctrl to select multiple elements
+// Use Ctrl+mouse to select via lasso
+//
+// Use +/- or Ctrl+mouse wheel to zoom
+// Drag a whole relation at its central square icon
+//
+// Press Ctrl+C to copy the whole diagram to the system clipboard (then just paste it to, eg, Word)
+// Edit the files in the "palettes" directory to create your own element palettes
+//
+// Select "Custom Elements &gt; New..." to create new element types
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// This text will be stored with each diagram;  use it for notes.</help_text>
   <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>567</x>
+      <x>644</x>
       <y>175</y>
       <w>189</w>
       <h>126</h>
@@ -28,8 +51,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>434</x>
-      <y>14</y>
+      <x>602</x>
+      <y>0</y>
       <w>147</w>
       <h>105</h>
     </coordinates>
@@ -48,7 +71,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>392</x>
+      <x>399</x>
       <y>175</y>
       <w>161</w>
       <h>126</h>
@@ -71,42 +94,44 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>112</y>
-      <w>49</w>
-      <h>77</h>
+      <x>665</x>
+      <y>98</y>
+      <w>84</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;50.0;90.0</additional_attributes>
+    <additional_attributes>100.0;10.0;10.0;110.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>455</x>
-      <y>112</y>
-      <w>21</w>
-      <h>77</h>
+      <x>462</x>
+      <y>98</y>
+      <w>182</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>240.0;10.0;10.0;110.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>322</x>
-      <y>364</y>
-      <w>168</w>
-      <h>112</h>
+      <x>329</x>
+      <y>357</y>
+      <w>357</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>Raum
 --
 - name : string
+- numOfFenster : int
+- numOfLampe : int
 --
 + getName() : string
 + fenster[2] : Fenster
 + temp_sens: TemperaturSensor
 + lamp[2] : Lampe
-+ Raum(p_name: string)
++ Raum(p_name: string, fensterName[]: string, lengthFensterArr: int, lampeName[]: string, lenghtLampArr: int)
 + ~Raum()
 
 
@@ -119,7 +144,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>182</x>
+      <x>189</x>
       <y>14</y>
       <w>147</w>
       <h>112</h>
@@ -139,7 +164,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>217</x>
+      <x>224</x>
       <y>119</y>
       <w>84</w>
       <h>427</h>
@@ -150,24 +175,24 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>343</x>
-      <y>469</y>
+      <x>350</x>
+      <y>455</y>
       <w>42</w>
-      <h>77</h>
+      <h>91</h>
     </coordinates>
     <panel_attributes>1
 
 lt=&lt;&lt;&lt;&lt;&lt;-
 m2=  1..*</panel_attributes>
-    <additional_attributes>40.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>40.0;10.0;10.0;110.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>406</x>
-      <y>259</y>
-      <w>49</w>
-      <h>154</h>
+      <x>413</x>
+      <y>273</y>
+      <w>42</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>m2=  1..*
 
@@ -184,15 +209,15 @@ lt=&lt;&lt;&lt;&lt;&lt;-
 
 
 </panel_attributes>
-    <additional_attributes>10.0;150.0;20.0;60.0</additional_attributes>
+    <additional_attributes>10.0;120.0;20.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>539</x>
-      <y>259</y>
-      <w>77</w>
-      <h>329</h>
+      <x>658</x>
+      <y>294</y>
+      <w>140</w>
+      <h>259</h>
     </coordinates>
     <panel_attributes>m2=  1..*
 
@@ -224,15 +249,15 @@ lt=&lt;&lt;&lt;&lt;&lt;-
 
 
 </panel_attributes>
-    <additional_attributes>10.0;400.0;60.0;60.0</additional_attributes>
+    <additional_attributes>10.0;350.0;170.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>434</x>
+      <x>567</x>
       <y>539</y>
-      <w>231</w>
-      <h>98</h>
+      <w>126</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Fenster
 --
@@ -240,7 +265,6 @@ lt=&lt;&lt;&lt;&lt;&lt;-
 --
 + setName(p_name: string) : void
 + kontaksensor[2] : Kontaksensor
-+ konstaksensor_ptr : KontakSensor*
 + Fenster()
 + ~Fenster()</panel_attributes>
     <additional_attributes/>
@@ -248,10 +272,10 @@ lt=&lt;&lt;&lt;&lt;&lt;-
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>434</x>
-      <y>469</y>
-      <w>91</w>
-      <h>84</h>
+      <x>560</x>
+      <y>448</y>
+      <w>56</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>1
 
@@ -259,12 +283,12 @@ lt=&lt;&lt;&lt;&lt;&lt;-
 
 lt=&lt;&lt;&lt;&lt;&lt;-
 m2=  1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;50.0;130.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>252</x>
+      <x>259</x>
       <y>532</y>
       <w>154</w>
       <h>105</h>
