@@ -14,6 +14,9 @@ Raum::Raum(string p_name, string fensterName[], int lengthFensterArr, string lam
 	// Because the array in parameter decayed as pointer, there is no change to get the length of it.
 	// It is automaticly became an address of the array
 
+	// Set Raum name
+	this->name = p_name;
+
 	/* ------------ FENSTER ------------ */
 	// Check if Raum has Fenster or not
 	if (fensterName == NULL) {
@@ -25,20 +28,12 @@ Raum::Raum(string p_name, string fensterName[], int lengthFensterArr, string lam
 			throw "Error - Length of fensterName Array is 0, while fensterName Array is not empty";
 		}
 		else {
-			// Set Raum name
-			this->name = p_name;
 
-			// Allocate Fenster, Lampe object based on the given length parameter
+			// Allocate Fenster
 			this->fenster = new Fenster[lengthFensterArr];
-			this->lampe = new Lampe[lenghtLampArr];
-
-			// Save total of Fenster and Lampe in variable
 			this->numOfFenster = lengthFensterArr;
-			this->numOfLampe = lenghtLampArr;
 
-			// Raum has Fenster
 			for (int i = 0; i < lengthFensterArr; i++) {
-
 				// Set Fenster name
 				this->fenster[i].setName(fensterName[i]);
 			}
@@ -58,6 +53,9 @@ Raum::Raum(string p_name, string fensterName[], int lengthFensterArr, string lam
 		}
 		else {
 			// Raum has Lampe
+			this->lampe = new Lampe[lenghtLampArr];
+			this->numOfLampe = lenghtLampArr;
+			
 			for (int i = 0; i < lenghtLampArr; i++) {
 
 				// Set Lampe name
