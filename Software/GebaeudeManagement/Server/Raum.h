@@ -14,7 +14,7 @@ private:
 	int numOfLampe;
 
 public:
-	
+	Raum();
 	Raum(string p_name, string fensterName[], int lengthFensterArr, string lampeName[], int lenghtLampArr);
 	~Raum();
 
@@ -22,8 +22,6 @@ public:
 	int getNumOfLampe();
 
 	string getName();
-
-
 
 	Fenster* fenster;
 	Lampe* lampe;
