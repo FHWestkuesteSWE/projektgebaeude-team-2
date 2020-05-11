@@ -3,19 +3,92 @@
 #include "UnitTest.h"
 
 #include <iostream>
-#include <string>
+#include <string.h>
 
 using namespace std;
 
+
 int main(int argc, char* argv[]) {
 
-	UnitTest obj;
-	obj.runUnitTest();
+	Server s;
+
+	// RAUM
+	string fensterName[] = { "links", "mitte", "rechts" };
+	unsigned int numOfFenster = sizeof(fensterName) / sizeof(fensterName[0]);
+	string lampeName[] = { "LampTable", "LampLeft", "LampRight" , "LampDoor" };
+	unsigned int numOfLamp = sizeof(lampeName) / sizeof(lampeName[0]);
+	Raum schlafzimmer("Schlafzimmer", fensterName, numOfFenster, lampeName, numOfLamp);
+
+	string lampeNameKeller[] = { "Mitte" };
+	unsigned int numOfLampKeller = sizeof(lampeNameKeller) / sizeof(lampeNameKeller[0]);
+	Raum keller("Keller", NULL, 0, lampeNameKeller, numOfLampKeller);
+
+
+
+	// SIMULATE MESSAGE FROM CLIENT
+	cout << "-------------------------" << endl;
+	cout << "From server - main" << endl;
+	//char req[] = "GET_SENSORS_Schlafzimmer";
+	char req[] = "GET_ACTORS_Schlafzimmer";
+	char ans[1024];
+	cout << "req: " << req << endl;
+
+	string convReq = (string)req;
+	
+	if (convReq.compare("GET_ROOMS") == 0) {
+
+		cout << "1. if" << endl;
+		char temp[] = "Wohnzimmer,Schlafzimmer,Kueche,Badezimmer";
+		strncpy_s(ans, temp, sizeof(temp));
+
+	}
+
+	if (convReq.compare("GET_SENSORS_Schlafzimmer") == 0) {
+
+		cout << "2. if" << endl;
+
+		string roomName = s.getRoomNameFromMsg(req);
+
+		char temp[1024];
+		s.getSensorFromRoom(roomName, temp);
+
+		strncpy_s(ans, temp, sizeof(temp));
+	}
+
+	if (convReq.compare("GET_ACTORS_Schlafzimmer") == 0) {
+
+		cout << "3. if" << endl;
+
+		string roomName = s.getRoomNameFromMsg(req);
+
+		char temp[1024];
+		s.getActorFromRoom(roomName, temp);
+
+		strncpy_s(ans, temp, sizeof(temp));
+	}
+
+	cout << "ans: " << ans << endl;
+
+	cout << "-------------------------" << endl;
+
+
+
+
+
+
+
+
+
+
+
+
+	//UnitTest obj;
+	//obj.runUnitTest();
 	
 
 	/* ---------------- SCHLAFZIMMER ---------------- */
 	// Define Raum und Fenster
-	
+	/*
 	string fensterName[] = { "links", "mitte", "rechts" };
 	unsigned int numOfFenster = sizeof(fensterName) / sizeof(fensterName[0]);
 	string lampeName[] = { "LampTable", "LampLeft", "LampRight" , "LampDoor" };
@@ -42,20 +115,20 @@ int main(int argc, char* argv[]) {
 	cout << "number_of_lampe: " << schlafzimmer.getNumOfLampe() << endl;
 
 	cout << endl << endl;
-	
+	*/
 
 
 	/* ---------------- KELLER ---------------- */
-	
+	/*
 	string lampeNameKeller[] = { "Mitte" };
 	unsigned int numOfLampKeller = sizeof(lampeNameKeller) / sizeof(lampeNameKeller[0]);
 	Raum keller("Keller", NULL, 0, lampeNameKeller, numOfLampKeller);
 	cout << "RAUM: " << keller.getName() << endl;
 	cout << "number_of_fenster: " << keller.getNumOfFenster() << endl;
 	cout << "number_of_lampe: " << keller.getNumOfLampe() << endl;
-	
+	*/
 
-	Server s;
+
 	s.start(argv[1]);
 
 

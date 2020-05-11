@@ -14,7 +14,7 @@ TemperaturSensor::~TemperaturSensor() {
 
 }
 
-void TemperaturSensor::setName(string p_name) {
+void TemperaturSensor::setName(const string p_name) {
 	this->name = p_name;
 }
 

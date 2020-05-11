@@ -5,7 +5,7 @@ Lampe::Lampe() {
 }
 
 Lampe::~Lampe() {
-
+	;
 }
 
 void Lampe::setState(bool p_action) {

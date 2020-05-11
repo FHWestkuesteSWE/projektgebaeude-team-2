@@ -5,8 +5,15 @@
 using namespace std;
 
 
+vector<Raum*> Raum::getAllObjects() {
+	return objList;
+}
+
 Raum::Raum() {
-	;
+	this->numOfFenster = 0;
+	this->numOfLampe = 0;
+	this->fenster = NULL;
+	this->lampe = NULL;
 }
 
 Raum::Raum(string p_name, string fensterName[], int lengthFensterArr, string lampeName[], int lenghtLampArr) {
@@ -74,11 +81,14 @@ Raum::Raum(string p_name, string fensterName[], int lengthFensterArr, string lam
 	// Temp Sensor
 	temp_sens.setName("TEMP_SENSOR_MAIN");
 
+	// add object of room to the list
+	objList.push_back(this);
 
 }
 
 Raum::~Raum() {
 	delete this->fenster;
+	delete this->lampe;
 }
 
 string Raum::getName() {
