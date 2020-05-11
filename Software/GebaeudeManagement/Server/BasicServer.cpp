@@ -6,6 +6,7 @@
 #include <boost/thread/thread.hpp>
 #include <boost/bind.hpp>
 
+
 void BasicServer::session(socket_ptr sock)
 {
 	try
@@ -52,7 +53,8 @@ void BasicServer::start(char port[]) {
 Simple Server: just replies by echoing
 */
 void BasicServer::processRequest(char req[], char ans[]) {
-	strncpy(ans, req, std::min<int>(max_length,strlen(ans)+1));
+	//strncpy(ans, req, std::min<int>(max_length,strlen(ans)+1));
+
 }
 
 BasicServer::~BasicServer()

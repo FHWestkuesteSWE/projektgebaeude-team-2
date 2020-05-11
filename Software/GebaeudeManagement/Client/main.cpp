@@ -4,21 +4,113 @@
 #include <iostream>
 #include "Client.h"
 #include "conio.h"
+#include <boost/algorithm/string.hpp> // split
 
 using namespace std;
+
+/*
+ * Parse Server-String
+ */
+list<string> parseServerString(string serverString)
+{
+	list<string> str;
+
+	boost::split(str, serverString, boost::is_any_of(","));
+
+	list<string>::iterator i;
+	for (i = str.begin(); i != str.end(); i++)
+	{
+		std::cout << *i << endl;
+
+	}
+
+	return str;
+}
+
+void hauptmenueRoomSelection(Client c)
+{
+	void selectionMarker(int, int);
+	void sensorMenue();
+	void aktorMenue();
+
+	char req[] = "GET_ROOMS";
+	char ans[1024];
+	c.sendRequest(req, ans);
+
+	list<string> splittedAnswer;
+	boost::split(splittedAnswer, ans, boost::is_any_of(","));
+
+	char wahl = 0;
+	int position = 1;
+	int maxLines = splittedAnswer.size() + 1;
+	int exitHauptmenue = 0;
+
+	do {
+		system("cls");
+		std::cout << "Gebauedeleitsystem FHW Team 2\n";
+		cout << "Hauptmenue: " << endl;
+		cout << "Waehlen Sie einen Raum aus" << endl;
+		cout << "----------------------------------------------------" << endl;
+
+		list<string>::iterator i;
+		int lineCount = 1;
+		for (i = splittedAnswer.begin(); i != splittedAnswer.end(); i++)
+		{
+			selectionMarker(lineCount++, position); cout << *i << endl;
+
+		}
+
+		selectionMarker(lineCount, position); printf("Programm beenden\n");
+
+
+		wahl = _getch();
+		switch (wahl) {
+		case 80: // Arrow down
+			if (position != maxLines)
+				position++;
+			break;
+
+		case 72: // Arrow up
+			if (position != 1)
+				position--;
+			break;
+
+		case 13: // Enter
+			switch (position) {
+			case 1: // Sensoren-Menü
+				sensorMenue();
+				break;
+			case 2: // Aktoren-Menü
+				aktorMenue();
+				break;
+			case 3: // Hauptmenü/Programm beenden
+				printf("Programm wird beendet ...\n");
+				exitHauptmenue = 1;
+				//Sleep(1000);
+				break;
+			}
+			break;
+		}
+	} while (exitHauptmenue != 1);
+}
+
 int main(int argc, char* argv[])
 {
+	//void parseServerString(string);
 	void selectionMarker(int, int);
 	void hauptmenue();
 
     Client c(argv[1], argv[2]);
     char req[1024];
     char ans[1024];
-   
-	hauptmenue();
+	char test[] = "Wohnzimmer,Schlafzimmer,Kueche,Badezimmer (Gast)";
+	hauptmenueRoomSelection(c);
 
 	//TODO
 	//-> sending requests from sub(sub)menues to server
+	
+	list<string> ret = parseServerString(test);
+	printf("num_Max = %d\n", ret.size());
 
 	return 0;
 }
@@ -30,6 +122,12 @@ void selectionMarker(int position, int markerPosition)
 	else
 		printf("    ");
 }
+
+/*
+ * Try of server based client menue
+ */
+
+
 
 void hauptmenue() {
 
@@ -75,7 +173,7 @@ void hauptmenue() {
 			case 3: // Hauptmenü/Programm beenden
 				printf("Programm wird beendet ...\n");
 				exitHauptmenue = 1;
-				Sleep(1000);
+				//Sleep(1000);
 				break;
 			}
 			break;
@@ -448,4 +546,5 @@ void aktorMenue()
 }
 
 
+ 
 
