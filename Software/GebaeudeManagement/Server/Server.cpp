@@ -28,22 +28,24 @@ void Server::processRequest(char req[], char ans[]) {
 	cout << "req: " << req << endl;
 	cout << "-------------------------" << endl;
 
-	if(req == "GET_ROOMS") {
-		char temp[] = "Wohnzimmer,Schlafzimmer,Kueche,Badezimmer";
+	string convReq = (string)req;
+
+	if(convReq.compare("GET_ROOMS") == 0) {
+		//char temp[] = "Wohnzimmer,Schlafzimmer,Kueche,Badezimmer";
+		char temp[1024];
+		this->getAllRooms(temp);
 		strncpy(ans, temp, std::min<int>(max_length, strlen(temp) + 1));
 
 	}
 
-	if(req == "GET_SENSORS_Schlafzimmer") {
-
+	if (convReq.compare("GET_SENSORS_Schlafzimmer") == 0 || convReq.compare("GET_SENSORS_Keller") == 0) {
 		string roomName = this->getRoomNameFromMsg(req);
-
 		char temp[1024];
 		this->getSensorFromRoom(roomName, temp);
 		strncpy(ans, temp, std::min<int>(max_length, strlen(temp) + 1));
 	}
 
-	if (req == "GET_ACTORS_Schlafzimmer") {
+	if (convReq.compare("GET_ACTORS_Schlafzimmer") == 0  || convReq.compare("GET_ACTORS_Keller") == 0) {
 
 		string roomName = this->getRoomNameFromMsg(req);
 
@@ -51,6 +53,10 @@ void Server::processRequest(char req[], char ans[]) {
 		this->getActorFromRoom(roomName, temp);
 		strncpy(ans, temp, std::min<int>(max_length, strlen(temp) + 1));
 	}
+
+
+
+
 
 
 }
@@ -98,54 +104,74 @@ void Server::getSensorFromRoom(string roomname, char* sensors) {
 	int location_last_char = 0;
 	
 	cout << "+++++++++++++" << endl;
+
+	// Get list of Raum's object
 	for (int i = 0; i < Raum::getAllObjects().size(); i++) {
 		string roomName_i = Raum::getAllObjects()[i]->getName();
 		cout << "roomName_i: " << roomName_i << endl;
 		if (roomName_i.compare(roomname) == 0) {
-			
 			cout << "Room " << roomName_i << "was found on the Raum objList" << endl;
 			numOfFens = Raum::getAllObjects()[i]->getNumOfFenster();
-			cout << "numOfFens: " << numOfFens << endl;
-
-			cout << Raum::getAllObjects()[i]->fenster[1].getName() << endl;
-
-			for (int j = 0; j < numOfFens; j++){
-				tempKontaktSensorList[j] = Raum::getAllObjects()[i]->fenster[j].getName();
-				cout << "tempFensList[i]: " << tempKontaktSensorList[i] << endl;
+			if (numOfFens == 0) {
+				// Raum does not have Fenster/KontaktSensor, Get only TempSens's name instead
+				tempTemperatureSensList = Raum::getAllObjects()[i]->temp_sens.getName();
+				break;
 			}
-			tempTemperatureSensList = Raum::getAllObjects()[i]->temp_sens.getName();
-			break;
+			else {
+				// Raum has Fenster/KontaktSensor
+				cout << "numOfFens: " << numOfFens << endl;
+				cout << Raum::getAllObjects()[i]->fenster[1].getName() << endl;
+
+				// Right now, use Fentername as Kontaktsensor's name
+				for (int j = 0; j < numOfFens; j++) {
+					tempKontaktSensorList[j] = Raum::getAllObjects()[i]->fenster[j].getName();
+					cout << "tempFensList[i]: " << tempKontaktSensorList[i] << endl;
+				}
+
+				// Get TempSens's name
+				tempTemperatureSensList = Raum::getAllObjects()[i]->temp_sens.getName();
+				break;
+			}
+
 		}
 		cout << endl;
 	}
 	cout << "+++++++++++++" << endl;
 
-	// Save all sensors in charr array
-	// Kontaktsensor
-	for (int k = 0; k < numOfFens; k++){
-		cout << tempKontaktSensorList[k] << endl;
-		cout << tempKontaktSensorList[k].length() << endl << endl;
 
-		for (int m = 0; m < (tempKontaktSensorList[k].length()); m++){
-			char now = (tempKontaktSensorList[k])[m];
-			sensorInRoom[m + location_next_char] = now;
-
-		}
-		location_next_char += tempKontaktSensorList[k].length();
-		sensorInRoom[location_next_char] = ',';
-		location_next_char += 1; // after comma
+	// Prepare to save the string array in char array
+	if (numOfFens == 0) {
+		;
 	}
+	else {
+		// Save all sensors in char array
+		// Kontaktsensor
+		for (int k = 0; k < numOfFens; k++) {
+			cout << tempKontaktSensorList[k] << endl;
+			cout << tempKontaktSensorList[k].length() << endl << endl;
+
+			for (int m = 0; m < (tempKontaktSensorList[k].length()); m++) {
+				char now = (tempKontaktSensorList[k])[m];
+				sensorInRoom[m + location_next_char] = now;
+
+			}
+			location_next_char += tempKontaktSensorList[k].length();
+			sensorInRoom[location_next_char] = ',';
+			location_next_char += 1; // after comma
+		}
+
+	}
+
 
 	// Temperature Sensor
 	for (int n = 0; n < tempTemperatureSensList.length(); n++) {
 		sensorInRoom[n + location_next_char] = tempTemperatureSensList[n];
 	}
-
 	location_last_char = location_next_char + tempTemperatureSensList.length();
 	sensorInRoom[location_last_char] = '\0';
 
-	cout << "sensorInRoom: " << sensorInRoom << endl;
 
+	cout << "sensorInRoom: " << sensorInRoom << endl;
 
 	strcpy(sensors, sensorInRoom);
 
@@ -224,3 +250,28 @@ void Server::getActorFromRoom(string roomname, char* actor) {
 
 }
 
+
+void Server::getAllRooms(char* rooms) {
+
+	int location_next_char = 0;
+
+	for (int i = 0; i < Raum::getAllObjects().size(); i++) {
+		string roomName_i = Raum::getAllObjects()[i]->getName();
+
+		for (int m = 0; m < roomName_i.length(); m++) {
+			char now = roomName_i[m];
+			rooms[m + location_next_char] = now;
+		}
+
+		location_next_char += roomName_i.length();
+
+		if (i == Raum::getAllObjects().size() - 1) {
+			rooms[location_next_char] = '\0';
+		}
+		else {
+			rooms[location_next_char] = ',';
+			location_next_char += 1; // after comma
+		}
+
+	}
+}

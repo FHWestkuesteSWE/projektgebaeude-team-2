@@ -14,6 +14,7 @@ public:
 	string getRoomNameFromMsg(char msg[]);
 	void getSensorFromRoom(string roomname, char* sensors);
 	void getActorFromRoom(string roomname, char* actor);
+	void getAllRooms(char* rooms);
 
 
 protected:

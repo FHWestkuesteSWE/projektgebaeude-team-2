@@ -23,13 +23,14 @@ int main(int argc, char* argv[]) {
 	unsigned int numOfLampKeller = sizeof(lampeNameKeller) / sizeof(lampeNameKeller[0]);
 	Raum keller("Keller", NULL, 0, lampeNameKeller, numOfLampKeller);
 
-
-
+	
+	
+	/*
 	// SIMULATE MESSAGE FROM CLIENT
 	cout << "-------------------------" << endl;
 	cout << "From server - main" << endl;
-	//char req[] = "GET_SENSORS_Schlafzimmer";
-	char req[] = "GET_ACTORS_Schlafzimmer";
+	char req[] = "GET_ROOMS";
+	//char req[] = "GET_SENSORS_Keller";
 	char ans[1024];
 	cout << "req: " << req << endl;
 
@@ -38,12 +39,14 @@ int main(int argc, char* argv[]) {
 	if (convReq.compare("GET_ROOMS") == 0) {
 
 		cout << "1. if" << endl;
-		char temp[] = "Wohnzimmer,Schlafzimmer,Kueche,Badezimmer";
+		//char temp[] = "Wohnzimmer,Schlafzimmer,Kueche,Badezimmer";
+		char temp[1024];
+		s.getAllRooms(temp);
 		strncpy_s(ans, temp, sizeof(temp));
 
 	}
 
-	if (convReq.compare("GET_SENSORS_Schlafzimmer") == 0) {
+	if (convReq.compare("GET_SENSORS_Schlafzimmer") == 0 || convReq.compare("GET_SENSORS_Keller") == 0 ) {
 
 		cout << "2. if" << endl;
 
@@ -70,16 +73,8 @@ int main(int argc, char* argv[]) {
 	cout << "ans: " << ans << endl;
 
 	cout << "-------------------------" << endl;
-
-
-
-
-
-
-
-
-
-
+	*/
+	
 
 
 	//UnitTest obj;
