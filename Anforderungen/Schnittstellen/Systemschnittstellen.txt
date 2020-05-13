@@ -36,3 +36,15 @@ Sensor:
 Aktor :
 	- <listOfAktoren>_<RaumName>
 	- <AktorName>_<RaumName>_<actor state>
+	
+	
+	
+#########################  BEISPIEL  #########################
+
+
+GET_ROOMS					: Get Liste von Räumen
+GET_SENSORLIST_<RaumName>	: Get Liste von Sensoren im Raum x
+GET_ACTORLIST_<RaumName>	: Get Liste von Aktoren im Raum x
+
+GET_SENSORSTATE_<sensorName>_<RaumName> : Get State vom Sensor x im Raum y
+SET_<actorName>_<RaumName>_<Action>		: Set State vom Aktor x im Raum y
