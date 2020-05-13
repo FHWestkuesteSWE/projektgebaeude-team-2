@@ -456,18 +456,34 @@ void Server::setActorState(string roomname, string actorname, string action, cha
 
 
 
+
+/*
+	Function prepareAnswer(): "convert" a char array from array of string
+
+	@param:
+	- content: array of string, the member of this array based on the type of message
+		- For sensors:
+		e.g GET_SENSORS_<roomName>: { failure code, sensorsInRoom: char array}
+	
+
+	- content_len = length of the array content
+	- ans = the answer will be copied into this buffer as char array
+
+*/
 void Server::prepareAnswer(string* content, int content_len, char* ans) {
 	int location_next_char = 0;
 	int location_last_char = 0;
 	
 	for (int k = 0; k < content_len; k++) {
 
+		// Failure code
 		if (k == 0) {
 			ans[0] = content[0][0];
-			ans[1] = '_';
-			location_next_char += 2;
-
+			ans[1] = '_'; // add '_' after failure code
+			location_next_char += 2; // next index is number 2
 		}
+
+		// After failure code
 		else {
 
 			for (int m = 0; m < (content[k].length()); m++) {
@@ -478,7 +494,9 @@ void Server::prepareAnswer(string* content, int content_len, char* ans) {
 
 			location_next_char += content[k].length();
 
+			// Last element or Word
 			if (k == content_len - 1) {
+				// Last element or word from array, append \0 at the end
 				ans[location_next_char] = '\0';
 			}
 			else {
