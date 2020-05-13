@@ -11,17 +11,18 @@ Server::Server() {
 	;
 }
 
-void Server::start(char port[]) {
-	
-	// Start server using function from BasicServer
-	BasicServer::start(port);
-
+Server::~Server() {
+	;
 }
 
-void Server::processRequest(char req[], char ans[]) {
-	//strncpy(ans, req, std::min<int>(1024, strlen(ans) + 1));
 
-	// Schnitstellen zu der andren Klasse
+void Server::start(char port[]) {
+	// Start server using function from BasicServer
+	BasicServer::start(port);
+}
+
+
+void Server::processRequest(char req[], char ans[]) {
 
 	cout << "-------------------------" << endl;
 	cout << "From server - processRequest" << endl;
@@ -29,13 +30,12 @@ void Server::processRequest(char req[], char ans[]) {
 	cout << "-------------------------" << endl;
 
 	string convReq = (string)req;
-
-
 	stringstream string_stream_convReq(convReq);
 	string segment;
 	string msgArr[10];
 	int i = 0;
 
+	// Parse incomming message into string array
 	while (getline(string_stream_convReq, segment, '_')) {
 		msgArr[i] = segment;
 		cout << "msgArr[i]: " << msgArr[i] << endl;
@@ -90,13 +90,18 @@ void Server::processRequest(char req[], char ans[]) {
 
 	}
 	else {
+		//SET_<actorName>_<RaumName>_<Action>
 		cout << "SET Request" << endl;
+		string actorName = msgArr[1];
+		string roomName = msgArr[2];
+		string action = msgArr[3];
+		char temp[1024];
+		this->setActorState(roomName, actorName, action, temp);
+		strncpy(ans, temp, std::min<int>(max_length, strlen(temp) + 1));
 	}
 
 }
 
-Server::~Server(){
-}
 
 
 void Server::getSensorFromRoom(string roomname, char* sensors) {
@@ -212,6 +217,7 @@ void Server::getActorFromRoom(string roomname, char* actor) {
 	char actorInRoom[1024];
 	int lengthOfKontakSensName = 0;
 	int numOfLamp = 0;
+	string str_ans[3];
 
 	int location_next_char = 0;
 	int location_last_char = 0;
@@ -260,6 +266,11 @@ void Server::getActorFromRoom(string roomname, char* actor) {
 
 	cout << "actorInRoom: " << actorInRoom << endl;
 
+	str_ans[0] = "0";
+	str_ans[1] = actorInRoom;
+	str_ans[2] = roomname;
+
+	this->prepareAnswer(str_ans, 3, actorInRoom);
 
 	strcpy(actor, actorInRoom);
 
@@ -272,26 +283,33 @@ void Server::getActorFromRoom(string roomname, char* actor) {
 void Server::getAllRooms(char* rooms) {
 
 	int location_next_char = 0;
+	char temp[1024];
+	string str_ans[2];
 
 	for (int i = 0; i < Raum::getAllObjects().size(); i++) {
 		string roomName_i = Raum::getAllObjects()[i]->getName();
 
 		for (int m = 0; m < roomName_i.length(); m++) {
 			char now = roomName_i[m];
-			rooms[m + location_next_char] = now;
+			temp[m + location_next_char] = now;
 		}
 
 		location_next_char += roomName_i.length();
 
 		if (i == Raum::getAllObjects().size() - 1) {
-			rooms[location_next_char] = '\0';
+			temp[location_next_char] = '\0';
 		}
 		else {
-			rooms[location_next_char] = ',';
+			temp[location_next_char] = ',';
 			location_next_char += 1; // after comma
 		}
 
 	}
+
+	str_ans[0] = "0";
+	str_ans[1] = temp;
+	this->prepareAnswer(str_ans, 2, rooms);
+
 }
 
 
