@@ -11,10 +11,16 @@ public:
 	Server();
 	~Server();
 
-	string getRoomNameFromMsg(char msg[]);
+
 	void getSensorFromRoom(string roomname, char* sensors);
 	void getActorFromRoom(string roomname, char* actor);
 	void getAllRooms(char* rooms);
+
+	// todo
+	void getSensorState(string roomname, string sensorname, char* ans);
+	void setActorState(string roomname, string actorname, string action, char* ans);
+
+	void prepareAnswer(string* content, int content_len, char* ans);
 
 
 protected:
