@@ -16,26 +16,30 @@ Aktor:
 	- ACTOR_LIST (nur mit GET Befehl)
 	- <AktorName>_<RaumName>_<Action> (nur mit SET Befehl)
 
+Raum:
+	- <RaumName>_<FensterName>_<Anzahl der Fenster>_<LampeName>_< Anzahl der Lampe > (nur mit CREATE Befehl)
+	
+	
+	
+-Format für Antworten (Server-Client)
+	Zeichenkette in einfachen char, maximale Länge 1024 Zeichen
+	Bestandteile: <Fehlernummer>_<Argumente>
 
-	
-	
-	
--Format für Antworten
-Zeichenkette in einfachen char, maximale Länge 1024 Zeichen
-Bestandteile: <Fehlernummer>_<Argumente>
+	Fehlernummer: 
+	0: Kein Fehler
+	...
 
-Fehlernummer: 
-0: Kein Fehler
-...
-
-Argumente: 
-Sensor: 
-	- <listOfSensors>_<RaumName>
-	- <SensorName>_<RaumName>_<sensorState>
-	
-Aktor :
-	- <listOfAktoren>_<RaumName>
-	- <AktorName>_<RaumName>_<actor state>
+	Argumente: 
+	Sensor: 
+		- <listOfSensors>_<RaumName>
+		- <SensorName>_<RaumName>_<sensorState>
+		
+	Aktor :
+		- <listOfAktoren>_<RaumName>
+		- <AktorName>_<RaumName>_<actor state>
+		
+	Raum:
+		- <RaumName>
 	
 	
 	
