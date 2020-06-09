@@ -2,9 +2,6 @@
 #include <iostream>
 
 
-using namespace std;
-
-
 vector<Raum*> Raum::getAllObjects() {
 	return objList;
 }
@@ -21,75 +18,104 @@ Raum::Raum(string p_name, string fensterName[], int lengthFensterArr, string lam
 	// Because the array in parameter decayed as pointer, there is no change to get the length of it.
 	// It is automaticly became an address of the array
 
+
 	// Set Raum name
 	this->name = p_name;
 
 	/* ------------ FENSTER ------------ */
-	// Check if Raum has Fenster or not
-	if (fensterName == NULL) {
-		// Raum does not have Fenster
-		cout << "Raum " << this->name << "does not have Fenster" << endl;
-	}
-	else {
-		if (lengthFensterArr == 0) {
-			throw "Error - Length of fensterName Array is 0, while fensterName Array is not empty";
+	try {
+		// Check if Raum has Fenster or not
+		if (fensterName == NULL) {
+			// Raum does not have Fenster
+			cout << "Raum " << this->name << "does not have Fenster" << endl;
 		}
 		else {
-
-			// Allocate Fenster
-			this->fenster = new Fenster[lengthFensterArr];
-			this->numOfFenster = lengthFensterArr;
-
-			for (int i = 0; i < lengthFensterArr; i++) {
-				// Set Fenster name
-				this->fenster[i].setName(fensterName[i]);
+			if (lengthFensterArr == 0) {
+				throw "Error - Length of fensterName Array is 0, while fensterName Array is not empty";
 			}
+			else {
+				// Allocate Fenster
+				this->fenster = new Fenster[lengthFensterArr];
+				this->numOfFenster = lengthFensterArr;
 
+				for (int i = 0; i < lengthFensterArr; i++) {
+					// Set Fenster name
+					this->fenster[i].setName(fensterName[i]);
+				}
+
+			}
 		}
 	}
+	catch (const char* msg) {
+		cout << msg << endl;
+	}
+	catch (std::exception& e) {
+		cerr << e.what() << endl;
+	}
+
 
 	/* ------------ Lampe ------------ */
-	// Check if Raum has Lampe or not
-	if (lampeName == NULL) {
-		// Raum does not have Lampe
-		cout << "Raum " << this->name << "does not have Lampe" << endl;
-	}
-	else {
-		if (lenghtLampArr == 0) {
-			throw "Error - Length of lenghtLampArr is 0, while lampeName Array is not empty";
+	try {
+		// Check if Raum has Lampe or not
+		if (lampeName == NULL) {
+			// Raum does not have Lampe
+			cout << "Raum " << this->name << "does not have Lampe" << endl;
 		}
 		else {
-			// Raum has Lampe
-			this->lampe = new Lampe[lenghtLampArr];
-			this->numOfLampe = lenghtLampArr;
-			
-			for (int i = 0; i < lenghtLampArr; i++) {
-
-				// Set Lampe name
-				this->lampe[i].setName(lampeName[i]);
-
-				// Set Lampe state to off (false)
-				this->lampe[i].setState(false);
+			if (lenghtLampArr == 0) {
+				throw "Error - Length of lenghtLampArr is 0, while lampeName Array is not empty";
 			}
+			else {
+				// Raum has Lampe
+				this->lampe = new Lampe[lenghtLampArr];
+				this->numOfLampe = lenghtLampArr;
+
+				for (int i = 0; i < lenghtLampArr; i++) {
+
+					// Set Lampe name
+					this->lampe[i].setName(lampeName[i]);
+
+					// Set Lampe state to off (false)
+					this->lampe[i].setState(false);
+				}
+
+			}
+
 
 		}
 
-
+	}
+	catch (const char* msg) {
+		cout << msg << endl;
+	}
+	catch (std::exception& e) {
+		cerr << e.what() << endl;
 	}
 
 	/* ------------ TEMPERATURE SENSOR ------------ */
 	// Temp Sensor
-	temp_sens.setName("TEMP_SENSOR_MAIN");
+	temp_sens.setName("TempSensMain");
 
 	// add object of room to the list
 	objList.push_back(this);
 
+
 }
 
 Raum::~Raum() {
+	
 	delete this->fenster;
 	delete this->lampe;
+	// clear vector objList
+	for (std::vector<Raum*>::iterator i = this->objList.begin(), endI = this->objList.end(); i != endI; ++i){
+		delete *i;
+	}
+	this->objList.clear();
+	
+
 }
+
+
 
 string Raum::getName() {
 	return this->name;
