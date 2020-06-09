@@ -20,7 +20,6 @@ public:
 	Raum(string p_name, string fensterName[], int lengthFensterArr, string lampeName[], int lenghtLampArr);
 	~Raum();
 
-
 	static vector<Raum*> getAllObjects();
 
 	int getNumOfFenster();
