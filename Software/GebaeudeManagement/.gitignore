@@ -1,9 +1,0 @@
-Client/x64/*
-Server/x64/*
-x64/
-.vs/*
-Client/Client.vcxproj
-Client/Client.vcxproj.user
-Server/Server.vcxproj
-Server/Server.vcxproj.user
-GebaeudeManagement.sln
