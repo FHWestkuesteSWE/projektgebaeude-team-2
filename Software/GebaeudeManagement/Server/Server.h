@@ -3,10 +3,12 @@
 #include <vector>
 #include "BasicServer.h"
 #include "Raum.h"
+#include "SSLServer.h"
 
 using namespace std;
 
-class Server : BasicServer {
+//class Server : BasicServer {
+class Server : SSLServer {
 private:
 	Raum* raumObj;
 
