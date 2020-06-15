@@ -174,7 +174,8 @@ int main(int argc, char* argv[]) {
 	
 
 
-	s.start(argv[1]);
+	//char port[] = "8000";
+	s.start(argv[0]);
 
 
 	return 0;
