@@ -7,8 +7,8 @@
 
 using namespace std;
 
-//class Server : BasicServer {
-class Server : SSLServer {
+class Server : BasicServer {
+//class Server : SSLServer {
 private:
 	Raum* raumObj;
 

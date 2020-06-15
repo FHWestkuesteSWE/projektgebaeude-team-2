@@ -6,8 +6,8 @@
 #include <boost/algorithm/string.hpp> // split
 #include "SSLClient.h"
 using namespace std;
-//class Client : BasicClient
-class Client : SSLClient
+class Client : BasicClient
+//class Client : SSLClient
 {
 public:
 	Client(char server[], char port[]);

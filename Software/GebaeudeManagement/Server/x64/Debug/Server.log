@@ -1,9 +1,4 @@
-﻿  main.cpp
-  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
-  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
-  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
-  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-  Server.cpp
+﻿  Server.cpp
   Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
@@ -53,17 +48,4 @@ C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Serv
 C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(321,52): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(384,44): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(698,45): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-  Session.cpp
-  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
-  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
-  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
-  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Session.cpp(52,44): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  SSLServer.cpp
-  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
-  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
-  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
-  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
-  Generating Code...
-SSLServer.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl SSLServer::processRequest(char * const,char * const)" (?processRequest@SSLServer@@UEAAXQEAD0@Z)
-C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\x64\Debug\Server.exe : fatal error LNK1120: 1 unresolved externals
+  Server.vcxproj -> C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\x64\Debug\Server.exe

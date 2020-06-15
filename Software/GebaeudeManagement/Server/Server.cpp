@@ -18,8 +18,8 @@ Server::~Server() {
 
 void Server::start(char port[]) {
 	// Start server using function from BasicServer
-	//BasicServer::start(port);
-	SSLServer::start(port);
+	BasicServer::start(port);
+	//SSLServer::start(port);
 }
 
 

@@ -20,7 +20,6 @@ public:
 	void start_accept(boost::asio::io_service& io_service_, boost::asio::ip::tcp::acceptor& acceptor);
 	void handle_accept(Session* new_session, boost::asio::io_service* io_service, boost::asio::ip::tcp::acceptor* acceptor,
 		 const boost::system::error_code& error);
-protected:
-	virtual void processRequest(char request[], char answer[]);
+
 };
 
