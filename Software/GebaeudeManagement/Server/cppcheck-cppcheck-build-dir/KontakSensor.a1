@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2592282429">
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;p_name&apos; should be passed by const reference." verbose="Parameter &apos;p_name&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\KontakSensor.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\KontakSensor.cpp" line="17" column="35"/>
+            <symbol>p_name</symbol>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="setName" lineNumber="17"/>
+    <functiondecl functionName="setStatus" lineNumber="21"/>
+    <functiondecl functionName="setValue" lineNumber="25"/>
+    <functiondecl functionName="getValue" lineNumber="30"/>
+    <functiondecl functionName="getStatus" lineNumber="34"/>
+    <functiondecl functionName="getName" lineNumber="40"/>
+    <functioncall functionName="KontakSensor"/>
+    <functioncall functionName="getStatus"/>
+    <functioncall functionName="getValue"/>
+    <functioncall functionName="name"/>
+    <functioncall functionName="p_name"/>
+    <functioncall functionName="p_status"/>
+    <functioncall functionName="p_value"/>
+    <functioncall functionName="setId"/>
+    <functioncall functionName="setStatus"/>
+    <functioncall functionName="setValue"/>
+  </FileInfo>
+</analyzerinfo>

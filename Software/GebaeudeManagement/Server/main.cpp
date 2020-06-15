@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
 	string lampeName[] = { "LampTable", "LampLeft", "LampRight" , "LampDoor" };
 	unsigned int numOfLamp = sizeof(lampeName) / sizeof(lampeName[0]);
 	char dummy1[1024];
-	s.createRoom("Schlafzimmer", fensterName, 0, lampeName, numOfLamp, dummy1);
+	s.createRoom("Schlafzimmer", fensterName, numOfFenster, lampeName, numOfLamp, dummy1);
 
 
 	string lampeNameKeller[] = { "Mitte" };
@@ -36,14 +36,12 @@ int main(int argc, char* argv[]) {
 	s.createRoom("newRoom", fensterNameNew, numOfFensterNew, lampeNameNew, numOfLampNew, dummy3);
 	cout << "DONE create new room" << endl;
 
-
-
 	// SIMULATE MESSAGE FROM CLIENT
 	/*
 	cout << "-------------------------" << endl;
 	cout << "From server - main" << endl;
 	//char req[] = "GET_ROOMS";
-	//char req[] = "GET_SENSORSLIST_Schlafzimmer";
+	char req[] = "GET_SENSORSLIST_Schlafzimmer";
 	//char req[] = "GET_SENSORSLIST_notExistedRoom"; // WRONG room name
 	//char req[] = "GET_ACTORLIST_Schlafzimmer";
 	//char req[] = "GET_ACTORLIST_notExistedRoom"; // WRONG room name
@@ -51,6 +49,7 @@ int main(int argc, char* argv[]) {
 	//char req[] = "GET_SENSORSTATE_TempSensMain_notExistedRoom"; // Wrong room name
 	//char req[] = "GET_SENSORSTATE_WrongSensorName_Schlafzimmer"; // Wrong sensorname name
 	//char req[] = "SET_ACTOR_Mitte_Keller_On";
+	//char req[] = "SET_ACTOR_LampDoor_newRoom_On";
 	//char req[] = "CREATE_ROOMS_Keller_fensterNr1,fensterNr2_2_LampMitte,LampHinten_2";
 	cout << "req: " << req << endl;
 
@@ -68,8 +67,8 @@ int main(int argc, char* argv[]) {
 		cout << "msgArr[i]: " << msgArr[i] << endl;
 		i++;
 	}
-	
 	*/
+	
 
 	//Befehl:
 	//Sensor: GET
@@ -90,8 +89,8 @@ int main(int argc, char* argv[]) {
 	*/
 
 
-	/*
 	
+	/*
 	if (msgArr[0].compare("GET") == 0) {
 		cout << "GET Request" << endl;
 
@@ -165,8 +164,8 @@ int main(int argc, char* argv[]) {
 		cout << "answer: " << temp << endl;
 
 	}
-	
 	*/
+	
 
 
 	//UnitTest obj;

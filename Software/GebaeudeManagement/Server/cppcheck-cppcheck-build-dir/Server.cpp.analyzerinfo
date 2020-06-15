@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="1574644363">
+        <error id="noCopyConstructor" severity="warning" msg="Class &apos;Server&apos; does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s)." verbose="Class &apos;Server&apos; does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s)." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="11" column="8"/>
+            <symbol>Server</symbol>
+        </error>
+        <error id="noOperatorEq" severity="warning" msg="Class &apos;Server&apos; does not have a operator= which is recommended since it has dynamic memory/resource allocation(s)." verbose="Class &apos;Server&apos; does not have a operator= which is recommended since it has dynamic memory/resource allocation(s)." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="11" column="8"/>
+            <symbol>Server</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;processRequest&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;processRequest&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier.">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.h" line="38" column="15" info="Function in derived class"/>
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\BasicServer.h" line="17" column="15" info="Virtual function in base class"/>
+            <symbol>processRequest</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;location_next_char&apos; can be reduced." verbose="The scope of the variable &apos;location_next_char&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="152" column="6"/>
+            <symbol>location_next_char</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;location_last_char&apos; can be reduced." verbose="The scope of the variable &apos;location_last_char&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="153" column="6"/>
+            <symbol>location_last_char</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;numOfLamp&apos; can be reduced." verbose="The scope of the variable &apos;numOfLamp&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="250" column="6"/>
+            <symbol>numOfLamp</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;location_next_char&apos; can be reduced." verbose="The scope of the variable &apos;location_next_char&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="253" column="6"/>
+            <symbol>location_next_char</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;numOfFens&apos; can be reduced." verbose="The scope of the variable &apos;numOfFens&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="359" column="6"/>
+            <symbol>numOfFens</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;tempVal&apos; can be reduced." verbose="The scope of the variable &apos;tempVal&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="400" column="12"/>
+            <symbol>tempVal</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;numOfLamp&apos; can be reduced." verbose="The scope of the variable &apos;numOfLamp&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="456" column="6"/>
+            <symbol>numOfLamp</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;actorFound&apos; can be reduced." verbose="The scope of the variable &apos;actorFound&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="457" column="7"/>
+            <symbol>actorFound</symbol>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;roomFound&apos; can be reduced." verbose="The scope of the variable &apos;roomFound&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="659" column="7"/>
+            <symbol>roomFound</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;p_name&apos; should be passed by const reference." verbose="Parameter &apos;p_name&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\TemperaturSensor.h" line="16" column="28"/>
+            <symbol>p_name</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;location_last_char&apos; is assigned a value that is never used." verbose="Variable &apos;location_last_char&apos; is assigned a value that is never used." cwe="563">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="599" column="25"/>
+            <symbol>location_last_char</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;roomFound&apos; is assigned a value that is never used." verbose="Variable &apos;roomFound&apos; is assigned a value that is never used." cwe="563">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="659" column="17"/>
+            <symbol>roomFound</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;roomFound&apos; is assigned a value that is never used." verbose="Variable &apos;roomFound&apos; is assigned a value that is never used." cwe="563">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="664" column="14"/>
+            <symbol>roomFound</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;roomFound&apos; is assigned a value that is never used." verbose="Variable &apos;roomFound&apos; is assigned a value that is never used." cwe="563">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp" line="669" column="14"/>
+            <symbol>roomFound</symbol>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="start" lineNumber="19"/>
+    <functiondecl functionName="processRequest" lineNumber="26"/>
+    <functiondecl functionName="getSensorFromRoom" lineNumber="145"/>
+    <functiondecl functionName="getActorFromRoom" lineNumber="244"/>
+    <functiondecl functionName="getAllRooms" lineNumber="321"/>
+    <functiondecl functionName="getSensorState" lineNumber="355"/>
+    <functiondecl functionName="setActorState" lineNumber="451"/>
+    <functiondecl functionName="createRoom" lineNumber="544"/>
+    <functiondecl functionName="prepareAnswer" lineNumber="597"/>
+    <functiondecl functionName="getPropertiesFromMessage" lineNumber="640"/>
+    <functiondecl functionName="getRoomObj" lineNumber="657"/>
+    <functioncall functionName="Actor"/>
+    <functioncall functionName="BasicServer"/>
+    <functioncall functionName="Fenster"/>
+    <functioncall functionName="Raum"/>
+    <functioncall functionName="SSLServer"/>
+    <functioncall functionName="Server"/>
+    <functioncall functionName="action"/>
+    <functioncall functionName="action_bool"/>
+    <functioncall functionName="actor"/>
+    <functioncall functionName="actorInRoom"/>
+    <functioncall functionName="actorName"/>
+    <functioncall functionName="actorname"/>
+    <functioncall functionName="ans"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="c_str"/>
+    <functioncall functionName="catch"/>
+    <functioncall functionName="compare"/>
+    <functioncall functionName="convReq"/>
+    <functioncall functionName="createRoom"/>
+    <functioncall functionName="errorCode"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="fensterName"/>
+    <functioncall functionName="fensterNum"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="getActorFromRoom"/>
+    <functioncall functionName="getAllObjects"/>
+    <functioncall functionName="getAllRooms"/>
+    <functioncall functionName="getName"/>
+    <functioncall functionName="getNumOfFenster"/>
+    <functioncall functionName="getNumOfLampe"/>
+    <functioncall functionName="getPropertiesFromMessage"/>
+    <functioncall functionName="getRoomObj"/>
+    <functioncall functionName="getSensorFromRoom"/>
+    <functioncall functionName="getSensorState"/>
+    <functioncall functionName="getStatus"/>
+    <functioncall functionName="getValue"/>
+    <functioncall functionName="getline"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="j"/>
+    <functioncall functionName="k"/>
+    <functioncall functionName="lampeName"/>
+    <functioncall functionName="lampeNum"/>
+    <functioncall functionName="lenghtLampArr"/>
+    <functioncall functionName="length"/>
+    <functioncall functionName="lengthFensterArr"/>
+    <functioncall functionName="location_last_char"/>
+    <functioncall functionName="location_next_char"/>
+    <functioncall functionName="m"/>
+    <functioncall functionName="max_length"/>
+    <functioncall functionName="min"/>
+    <functioncall functionName="n"/>
+    <functioncall functionName="now"/>
+    <functioncall functionName="p_name"/>
+    <functioncall functionName="port"/>
+    <functioncall functionName="prepareAnswer"/>
+    <functioncall functionName="raw"/>
+    <functioncall functionName="req"/>
+    <functioncall functionName="roomName"/>
+    <functioncall functionName="roomname"/>
+    <functioncall functionName="rooms"/>
+    <functioncall functionName="segment"/>
+    <functioncall functionName="sensorInRoom"/>
+    <functioncall functionName="sensorName"/>
+    <functioncall functionName="sensorname"/>
+    <functioncall functionName="sensors"/>
+    <functioncall functionName="setActorState"/>
+    <functioncall functionName="setState"/>
+    <functioncall functionName="size"/>
+    <functioncall functionName="start"/>
+    <functioncall functionName="stoi"/>
+    <functioncall functionName="str_ans"/>
+    <functioncall functionName="strcpy"/>
+    <functioncall functionName="string"/>
+    <functioncall functionName="string_stream_convReq"/>
+    <functioncall functionName="strlen"/>
+    <functioncall functionName="strncpy"/>
+    <functioncall functionName="temp"/>
+    <functioncall functionName="tempAns"/>
+    <functioncall functionName="tempVal"/>
+    <functioncall functionName="to_string"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="what"/>
+    <functioncall functionName="while"/>
+  </FileInfo>
+</analyzerinfo>

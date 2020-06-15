@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="3074254067">
+        <error id="missingOverride" severity="style" msg="The function &apos;processRequest&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;processRequest&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier.">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\main.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.h" line="34" column="15" info="Function in derived class"/>
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\main.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\BasicServer.h" line="17" column="15" info="Virtual function in base class"/>
+            <symbol>processRequest</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;p_name&apos; should be passed by const reference." verbose="Parameter &apos;p_name&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\main.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\TemperaturSensor.h" line="16" column="28"/>
+            <symbol>p_name</symbol>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="main" lineNumber="11"/>
+    <functioncall functionName="Actor"/>
+    <functioncall functionName="BasicServer"/>
+    <functioncall functionName="Fenster"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="Raum"/>
+    <functioncall functionName="SSLServer"/>
+    <functioncall functionName="Server"/>
+    <functioncall functionName="UnitTest"/>
+    <functioncall functionName="createRoom"/>
+    <functioncall functionName="dummy1"/>
+    <functioncall functionName="dummy2"/>
+    <functioncall functionName="dummy3"/>
+    <functioncall functionName="fensterName"/>
+    <functioncall functionName="fensterNameNew"/>
+    <functioncall functionName="lampeName"/>
+    <functioncall functionName="lampeNameKeller"/>
+    <functioncall functionName="lampeNameNew"/>
+    <functioncall functionName="max_length"/>
+    <functioncall functionName="numOfFenster"/>
+    <functioncall functionName="numOfFensterNew"/>
+    <functioncall functionName="numOfLamp"/>
+    <functioncall functionName="numOfLampKeller"/>
+    <functioncall functionName="numOfLampNew"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="start"/>
+  </FileInfo>
+</analyzerinfo>

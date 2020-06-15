@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="4024649445">
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;p_name&apos; should be passed by const reference." verbose="Parameter &apos;p_name&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Fenster.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Fenster.cpp" line="14" column="30"/>
+            <symbol>p_name</symbol>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="setName" lineNumber="14"/>
+    <functiondecl functionName="getName" lineNumber="18"/>
+    <functioncall functionName="Fenster"/>
+    <functioncall functionName="name"/>
+    <functioncall functionName="p_name"/>
+    <functioncall functionName="setName"/>
+  </FileInfo>
+</analyzerinfo>

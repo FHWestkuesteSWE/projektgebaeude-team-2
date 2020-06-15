@@ -3,4 +3,55 @@
   - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
   - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
   Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+  Server.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(64,65): warning C4267: 'argument': conversion from 'size_t' to 'const _Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(72,65): warning C4267: 'argument': conversion from 'size_t' to 'const _Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(80,65): warning C4267: 'argument': conversion from 'size_t' to 'const _Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(90,65): warning C4267: 'argument': conversion from 'size_t' to 'const _Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(96,65): warning C4267: 'argument': conversion from 'size_t' to 'const _Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(109,64): warning C4267: 'argument': conversion from 'size_t' to 'const _Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(130,64): warning C4267: 'argument': conversion from 'size_t' to 'const _Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(137,64): warning C4267: 'argument': conversion from 'size_t' to 'const _Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(191,61): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(202,78): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(272,52): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(335,44): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Server.cpp(619,45): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
   Server.vcxproj -> C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\x64\Debug\Server.exe

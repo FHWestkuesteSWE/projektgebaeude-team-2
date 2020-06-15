@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="1989948576">
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="getValue" lineNumber="13"/>
+    <functiondecl functionName="getStatus" lineNumber="16"/>
+    <functiondecl functionName="setId" lineNumber="20"/>
+    <functiondecl functionName="setStatus" lineNumber="24"/>
+    <functiondecl functionName="setValue" lineNumber="27"/>
+    <functioncall functionName="Sensor"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="p_id"/>
+    <functioncall functionName="p_status"/>
+    <functioncall functionName="p_value"/>
+  </FileInfo>
+</analyzerinfo>

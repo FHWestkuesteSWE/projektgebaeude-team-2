@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="1895479730">
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;p_name&apos; should be passed by const reference." verbose="Parameter &apos;p_name&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Lampe.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Lampe.cpp" line="20" column="28"/>
+            <symbol>p_name</symbol>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="setState" lineNumber="11"/>
+    <functiondecl functionName="getState" lineNumber="15"/>
+    <functiondecl functionName="setName" lineNumber="20"/>
+    <functiondecl functionName="getName" lineNumber="23"/>
+    <functioncall functionName="Actor"/>
+    <functioncall functionName="Lampe"/>
+    <functioncall functionName="getState"/>
+    <functioncall functionName="name"/>
+    <functioncall functionName="p_action"/>
+    <functioncall functionName="p_name"/>
+    <functioncall functionName="setId"/>
+    <functioncall functionName="setState"/>
+  </FileInfo>
+</analyzerinfo>

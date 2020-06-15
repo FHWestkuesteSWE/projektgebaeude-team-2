@@ -8,7 +8,7 @@
 vector<Raum*> Raum::objList;
 
 Server::Server() {
-	;
+	this->raumObj = new Raum();
 }
 
 Server::~Server() {
@@ -148,61 +148,38 @@ void Server::getSensorFromRoom(string roomname, char* sensors) {
 	string tempTemperatureSensList;
 	char sensorInRoom[1024];
 	int lengthOfKontakSensName = 0;
-	int numOfFens = 0;
 
 	int location_next_char = 0;
 	int location_last_char = 0;
 
 	string str_ans[3];
 
-	bool roomFound = false;
+
+	cout << "HERE START" << endl;
 
 	try {
+		Raum* roomObj_ptr = Raum::getRoomObj(roomname);
+		bool roomFound = false;
+		if ((roomObj_ptr->getName()).compare(roomname) == 0) {
+			roomFound = true;
 
-		// Get list of Raum's object
-		for (int i = 0; i < Raum::getAllObjects().size(); i++) {
-			string roomName_i = Raum::getAllObjects()[i]->getName();
-			cout << "roomName_i: " << roomName_i << endl;
-			if (roomName_i.compare(roomname) == 0) {
-				cout << "Room " << roomName_i << "was found on the Raum objList" << endl;
-				roomFound = true;
-				numOfFens = Raum::getAllObjects()[i]->getNumOfFenster();
-				if (numOfFens == 0) {
-					// Raum does not have Fenster/KontaktSensor, Get only TempSens's name instead
-					tempTemperatureSensList = Raum::getAllObjects()[i]->temp_sens.getName();
-					break;
-				}
-				else {
-					// Raum has Fenster/KontaktSensor
-					cout << "numOfFens: " << numOfFens << endl;
-					cout << Raum::getAllObjects()[i]->fenster[1].getName() << endl;
+			// Get TempSens's name
+			tempTemperatureSensList = roomObj_ptr->temp_sens.getName();
 
-					// Right now, use Fentername as Kontaktsensor's name
-					for (int j = 0; j < numOfFens; j++) {
-						tempKontaktSensorList[j] = Raum::getAllObjects()[i]->fenster[j].getName();
-						cout << "tempFensList[i]: " << tempKontaktSensorList[i] << endl;
-					}
-
-					// Get TempSens's name
-					tempTemperatureSensList = Raum::getAllObjects()[i]->temp_sens.getName();
-					break;
-				}
-			}
-			cout << endl;
-		}
-
-		if (roomFound == false) {
-			throw ROOM_NOT_FOUND;
-		}
-		else {
-			// Prepare to save the string array in char array
-			if (numOfFens == 0) {
+			if (roomObj_ptr->getNumOfFenster() == 0) {
 				;
+				// Room has no fenster/Kontaksensor,
+				// Take only Temparture sensor
 			}
 			else {
-				// Save all sensors in char array
+				// Raum has Fenster/KontaktSensor
+				// Right now, use Fentername as Kontaktsensor's name
+				for (int j = 0; j < roomObj_ptr->getNumOfFenster(); j++) {
+					tempKontaktSensorList[j] = roomObj_ptr->fenster[j].getName();
+				}
+				// Save all kontakt sensors in char array
 				// Kontaktsensor
-				for (int k = 0; k < numOfFens; k++) {
+				for (int k = 0; k < roomObj_ptr->getNumOfFenster(); k++) {
 					cout << tempKontaktSensorList[k] << endl;
 					cout << tempKontaktSensorList[k].length() << endl << endl;
 
@@ -216,19 +193,16 @@ void Server::getSensorFromRoom(string roomname, char* sensors) {
 					location_next_char += 1; // after comma
 				}
 
+
 			}
-
-
-			// Temperature Sensor
+			//Then, save temperature sensor in the same char array
 			for (int n = 0; n < tempTemperatureSensList.length(); n++) {
 				sensorInRoom[n + location_next_char] = tempTemperatureSensList[n];
 			}
 			location_last_char = location_next_char + tempTemperatureSensList.length();
 			sensorInRoom[location_last_char] = '\0';
 
-
-			cout << "sensorInRoom: " << sensorInRoom << endl;
-
+			// Prepare answer
 			str_ans[0] = "0";
 			str_ans[1] = sensorInRoom;
 			str_ans[2] = roomname;
@@ -236,9 +210,11 @@ void Server::getSensorFromRoom(string roomname, char* sensors) {
 			this->prepareAnswer(str_ans, 3, sensorInRoom);
 
 			strcpy(sensors, sensorInRoom);
-			cout << "-----------------" << endl;
-		}
 
+		}
+		else {
+			roomFound = false;
+		}
 
 	}
 	catch (const char* errorCode) {
@@ -269,7 +245,6 @@ void Server::getActorFromRoom(string roomname, char* actor) {
 
 
 	string tempActorList[100] = {};
-	string tempTemperatureSensList;
 	char actorInRoom[1024];
 	int lengthOfKontakSensName = 0;
 	int numOfLamp = 0;
@@ -277,41 +252,17 @@ void Server::getActorFromRoom(string roomname, char* actor) {
 
 	int location_next_char = 0;
 	int location_last_char = 0;
-	bool roomFound = false;
 
-	cout << "+++++++++++++" << endl;
 	try {
-
-		for (int i = 0; i < Raum::getAllObjects().size(); i++) {
-			string roomName_i = Raum::getAllObjects()[i]->getName();
-			cout << "roomName_i: " << roomName_i << endl;
-			if (roomName_i.compare(roomname) == 0) {
-				cout << "Room " << roomName_i << "was found on the Raum objList" << endl;
-				roomFound = true;
-				numOfLamp = Raum::getAllObjects()[i]->getNumOfLampe();
-				cout << "numOfLamp: " << numOfLamp << endl;
-				for (int j = 0; j < numOfLamp; j++) {
-					tempActorList[j] = Raum::getAllObjects()[i]->lampe[j].getName();
-					cout << "tempActorList[i]: " << tempActorList[i] << endl;
-				}
-				break;
+		Raum* roomObj_ptr = Raum::getRoomObj(roomname);
+		if ((roomObj_ptr->getName()).compare(roomname) == 0) {
+			numOfLamp = roomObj_ptr->getNumOfLampe();
+			// Get lamp
+			for (int j = 0; j < numOfLamp; j++) {
+				tempActorList[j] = roomObj_ptr->lampe[j].getName();
 			}
-			else {
-				roomFound = false;
-			}
-			cout << endl;
-		}
-
-		cout << "+++++++++++++" << endl;
-
-		if (roomFound == false) {
-			throw ROOM_NOT_FOUND;
-		}
-		else {
-			// Save all actor in charr array
+			// Save lamp actor in charr array
 			for (int k = 0; k < numOfLamp; k++) {
-				cout << tempActorList[k] << endl;
-				cout << tempActorList[k].length() << endl << endl;
 
 				for (int m = 0; m < (tempActorList[k].length()); m++) {
 					char now = (tempActorList[k])[m];
@@ -330,7 +281,6 @@ void Server::getActorFromRoom(string roomname, char* actor) {
 
 			}
 
-			cout << "actorInRoom: " << actorInRoom << endl;
 
 			str_ans[0] = "0";
 			str_ans[1] = actorInRoom;
@@ -341,9 +291,10 @@ void Server::getActorFromRoom(string roomname, char* actor) {
 			strcpy(actor, actorInRoom);
 
 
-			cout << "-----------------" << endl;
 		}
-
+		else {
+			throw ROOM_NOT_FOUND;
+		}
 
 	}
 	catch (const char* errorCode) {
@@ -407,99 +358,76 @@ void Server::getSensorState(string roomname, string sensorname, char* ans) {
 
 	int numOfFens = 0;
 
-	bool sensorFound = false;
-	bool sensState = false;
-	bool roomFound = false;
-	double tempVal = 0.0;
 
 	string str_ans[4];
 
 	try {
-		// Get list of Raum's object
-		for (int i = 0; i < Raum::getAllObjects().size(); i++) {
-			string roomName_i = Raum::getAllObjects()[i]->getName();
-			cout << "roomName_i: " << roomName_i << endl;
-			if (roomName_i.compare(roomname) == 0) {
-				cout << "Room " << roomName_i << "was found on the Raum objList" << endl;
-				roomFound = true;
-				numOfFens = Raum::getAllObjects()[i]->getNumOfFenster();
 
-				string kontakSensName = "";
-
-				// go through all Fenster
-				for (int k = 0; k < numOfFens; k++) {
-					kontakSensName = Raum::getAllObjects()[i]->fenster->kontaksensor->getName();
-					// check if given sensorname is "kontaktsensor"
-					if (kontakSensName.compare(sensorname) == 0) {
-						// kontaksensor was found
-						sensState = Raum::getAllObjects()[i]->fenster->kontaksensor->getStatus();
-
-						sensorFound = true;
-						str_ans[0] = "0"; // actor/sensor was found
-						str_ans[1] = sensorname;
-						str_ans[2] = roomname;
-						if (sensState == true) {
-							str_ans[3] = "On";
-						}
-						else {
-							str_ans[3] = "Off";
-						}
-						this->prepareAnswer(str_ans, 4, ans);
-						break;
+		Raum* roomObj_ptr = Raum::getRoomObj(roomname);
+		if ((roomObj_ptr->getName()).compare(roomname) == 0) {
+			numOfFens = roomObj_ptr->getNumOfFenster();
+			string kontakSensName = "";
+			// go through all Fenster
+			bool sensorFound = false;
+			bool sensState = false;
+			for (int k = 0; k < numOfFens; k++) {
+				kontakSensName = roomObj_ptr->fenster->kontaksensor->getName();
+				// check if given sensorname is "kontaktsensor"
+				if (kontakSensName.compare(sensorname) == 0) {
+					// kontaksensor was found
+					sensState = roomObj_ptr->fenster->kontaksensor->getStatus();
+					sensorFound = true;
+					str_ans[0] = "0"; // actor/sensor was found
+					str_ans[1] = sensorname;
+					str_ans[2] = roomname;
+					if (sensState == true) {
+						str_ans[3] = "On";
 					}
 					else {
-						sensorFound = false;
-						// cant find the given sensorname in kontaksensor, maybe tempSens?
+						str_ans[3] = "Off";
 					}
+					this->prepareAnswer(str_ans, 4, ans);
+					break;
 				}
-
-				if (sensorFound == false) {
-					string tempSensName = Raum::getAllObjects()[i]->temp_sens.getName();
-					if (tempSensName.compare(sensorname) == 0) {
-						// given sensorname must be TempSens
-						tempVal = Raum::getAllObjects()[i]->temp_sens.getValue();
-						sensorFound = true;
-
-						// copy the result in ans
-						string str_tempVal = to_string(tempVal);
-						tempAns = str_tempVal.c_str();
-						str_ans[0] = "0"; // actor/sensor was found
-						str_ans[1] = sensorname;
-						str_ans[2] = roomname;
-						str_ans[3] = tempAns;
-						this->prepareAnswer(str_ans, 4, ans);
-					}
-					else {
-						sensorFound = false;
-						// Here the sensorname was found nowhere in the room
-						throw SENSOR_ACTOR_NOT_FOUND;
-					}
-
+				else {
+					sensorFound = false;
+					// cant find the given sensorname in kontaksensor, maybe tempSens?
 				}
-
-
-
-			}
-			else {
-				roomFound = false;
 			}
 
-			cout << endl;
+			if (sensorFound == false) {
+				string tempSensName = roomObj_ptr->temp_sens.getName();
+				double tempVal = 0.0;
+				if (tempSensName.compare(sensorname) == 0) {
+					// given sensorname must be TempSens
+					tempVal = roomObj_ptr->temp_sens.getValue();
+					sensorFound = true;
+
+					// copy the result in ans
+					string str_tempVal = to_string(tempVal);
+					tempAns = str_tempVal.c_str();
+					str_ans[0] = "0"; // actor/sensor was found
+					str_ans[1] = sensorname;
+					str_ans[2] = roomname;
+					str_ans[3] = tempAns;
+					this->prepareAnswer(str_ans, 4, ans);
+				}
+				else {
+					sensorFound = false;
+					// Here the sensorname was found nowhere in the room
+					throw SENSOR_ACTOR_NOT_FOUND;
+				}
+
+			}
+
 		}
-		
-		if (roomFound == false) {
+		else {
 			throw ROOM_NOT_FOUND;
 		}
 
 	}
 	catch (const char* errorCode) {
-		// cant find the given actor in room
-		/*
-		str_ans[0] = errorCode;
-		str_ans[1] = "GET_SENSORSTATE";
-		str_ans[2] = sensorname;
-		str_ans[3] = roomname;
-		*/
+
 		str_ans[0] = errorCode;
 		str_ans[1] = sensorname;
 		str_ans[2] = roomname;
@@ -518,6 +446,8 @@ void Server::getSensorState(string roomname, string sensorname, char* ans) {
 }
 
 
+
+
 void Server::setActorState(string roomname, string actorname, string action, char* ans) {
 	cout << "-----------------" << endl;
 	cout << "FROM - SERVER setActorState" << endl;
@@ -533,60 +463,59 @@ void Server::setActorState(string roomname, string actorname, string action, cha
 
 	try {
 
-		cout << "+++++++++++++" << endl;
-		for (int i = 0; i < Raum::getAllObjects().size(); i++) {
-			string roomName_i = Raum::getAllObjects()[i]->getName();
-			cout << "roomName_i: " << roomName_i << endl;
-			if (roomName_i.compare(roomname) == 0) {
-				cout << "Room " << roomName_i << "was found on the Raum objList" << endl;
-				roomFound = true;
-				numOfLamp = Raum::getAllObjects()[i]->getNumOfLampe();
+		Raum* roomObj_ptr = Raum::getRoomObj(roomname);
+		if ((roomObj_ptr->getName()).compare(roomname) == 0) {
+			numOfLamp = roomObj_ptr->getNumOfLampe();
+			string actorName = "";
 
-				string actorName = "";
-
-				// go through actor lamp first
-				for (int k = 0; k < numOfLamp; k++) {
-					actorName = Raum::getAllObjects()[i]->lampe->getName();
-					// check if given actor is "lamp"
-					if (actorName.compare(actorname) == 0) {
-						// actor was found as lamp
-						actorFound = true;
-
-						// set actor status 
-						bool action_bool = false;
-						if (action.compare("On") == 0) {
-							action_bool = true;
-						}
-						else {
-							action_bool = false;
-						}
-						Raum::getAllObjects()[i]->lampe->setState(action_bool);
-
-						// copy the result in ans
-						// ans = <Fehlernummer>_<AktorName>_<RaumName>_<actor state>
-						str_ans[0] = "0"; // actor/sensor not found
-						str_ans[1] = actorname;
-						str_ans[2] = roomname;
-						str_ans[3] = action;
-						break;
+			// go through all actor: lamp
+			for (int k = 0; k < numOfLamp; k++) {
+				actorName = roomObj_ptr->lampe[k].getName();
+				// check if given actor is "lamp"
+				if (actorName.compare(actorname) == 0) {
+					actorFound = true;
+					// Lamp was found
+					// set actor status
+					bool action_bool = false;
+					// Convert the action from string to bool
+					if (action.compare("On") == 0) {
+						// action is on, = true
+						action_bool = true;
+					}
+					else if (action.compare("Off") == 0) {
+						// action is off, = false
+						action_bool = false;
 					}
 					else {
-						actorFound = false;
-						throw SENSOR_ACTOR_NOT_FOUND;
-						break;
+						// unknown action, throw error
+						throw ERROR_UNKNOWN_ACTION;
 					}
+					// set actor state
+					roomObj_ptr->lampe->setState(action_bool);
+
+					// copy the result in ans
+					// ans = <Fehlernummer>_<AktorName>_<RaumName>_<actor state>
+					str_ans[0] = "0"; // no error
+					str_ans[1] = actorname;
+					str_ans[2] = roomname;
+					str_ans[3] = action;
+					this->prepareAnswer(str_ans, 4, ans);
+					break;
+				}
+				else {
+					actorFound = false;
 				}
 			}
-			cout << endl;
+			if (actorFound = true) {
+				;
+				// actor was found already, do nothing
+			}
+			else {
+				// given actor's name was not found
+				throw SENSOR_ACTOR_NOT_FOUND;
+			}
 		}
-
-		this->prepareAnswer(str_ans, 4, ans);
-
-		cout << "+++++++++++++" << endl;
-
-
-
-		if (roomFound == false) {
+		else {
 			throw ROOM_NOT_FOUND;
 		}
 	}
@@ -615,35 +544,27 @@ void Server::setActorState(string roomname, string actorname, string action, cha
 void Server::createRoom(string p_name, string fensterName[], int lengthFensterArr, string lampeName[], int lenghtLampArr, char* ans) {
 
 	string str_ans[4];
-	bool roomExisted = false;
 
 	try {
-
-		// Get list of Raum's object
-		for (int i = 0; i < Raum::getAllObjects().size(); i++) {
-			string roomName_i = Raum::getAllObjects()[i]->getName();
-			cout << "roomName_i: " << roomName_i << endl;
-			if (roomName_i.compare(p_name) == 0) {
-				cout << "Room " << roomName_i << "is existed" << endl;
-				roomExisted = true;
-				break;
-			}
-			else {
-				roomExisted = false;
-			}
-		}
-
-		if (roomExisted == false) {
-			// Create Room
-			this->raumObj = new Raum(p_name, fensterName, lengthFensterArr, lampeName, lenghtLampArr);
-			str_ans[0] = SERVER_NO_ERROR;
-			str_ans[1] = p_name;
-			this->prepareAnswer(str_ans, 2, ans);
-		}
-		else {
-			// throw error, room is existed
+		Raum* roomObj_ptr = Raum::getRoomObj(p_name);
+		if ((roomObj_ptr->getName()).compare(p_name) == 0) {
 			throw ROOM_IS_EXISTED;
 		}
+		else {
+			// Create Room
+			// check if given room's name = ""
+			if (p_name.compare("") == 0) {
+				throw ERROR_ROOM_NAME;
+			}
+			else {
+				this->raumObj = new Raum(p_name, fensterName, lengthFensterArr, lampeName, lenghtLampArr);
+				str_ans[0] = SERVER_NO_ERROR;
+				str_ans[1] = p_name;
+				this->prepareAnswer(str_ans, 2, ans);
+			}
+
+		}
+
 	}
 	catch (const char* errorCode) {
 		str_ans[0] = errorCode;
@@ -730,3 +651,5 @@ void Server::getPropertiesFromMessage(string raw, int propertes_len, string* res
 	}
 
 }
+
+

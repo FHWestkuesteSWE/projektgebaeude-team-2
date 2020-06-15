@@ -15,6 +15,10 @@ private:
 	int numOfLampe;
 	static vector<Raum*> objList;
 
+	// Extra methods for creating room, to reduce the complexity on creating room in Raum constructor
+	void addFenster(int numOfFens, string fensterName[], Raum* ptr);
+	void addLampe(int numOflamp, string lampeName[], Raum* ptr);
+
 public:
 	Raum();
 	Raum(string p_name, string fensterName[], int lengthFensterArr, string lampeName[], int lenghtLampArr);
@@ -24,11 +28,11 @@ public:
 
 	int getNumOfFenster();
 	int getNumOfLampe();
-
 	string getName();
 
 	Fenster* fenster;
 	Lampe* lampe;
+	static Raum* getRoomObj(string roomName);
 
 	// Every room has 1 temperature sensor
 	TemperaturSensor temp_sens;

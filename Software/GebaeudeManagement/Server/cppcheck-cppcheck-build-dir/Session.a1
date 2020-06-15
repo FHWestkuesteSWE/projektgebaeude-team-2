@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="813419153">
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Session::data_&apos; is not initialized in the constructor." verbose="Member variable &apos;Session::data_&apos; is not initialized in the constructor." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Session.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Session.cpp" line="10" column="10"/>
+            <symbol>Session::data_</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;bytes_to_transfer&apos; is assigned a value that is never used." verbose="Variable &apos;bytes_to_transfer&apos; is assigned a value that is never used." cwe="563">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Session.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Session.cpp" line="52" column="25"/>
+            <symbol>bytes_to_transfer</symbol>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="socket" lineNumber="18"/>
+    <functiondecl functionName="start" lineNumber="23"/>
+    <functiondecl functionName="handle_handshake" lineNumber="30"/>
+    <functiondecl functionName="handle_read" lineNumber="45"/>
+    <functiondecl functionName="handle_write" lineNumber="64"/>
+    <functioncall functionName="BasicServer"/>
+    <functioncall functionName="SSLServer"/>
+    <functioncall functionName="Session"/>
+    <functioncall functionName="async_handshake"/>
+    <functioncall functionName="async_read_some"/>
+    <functioncall functionName="async_write"/>
+    <functioncall functionName="bind"/>
+    <functioncall functionName="buffer"/>
+    <functioncall functionName="bytes_transferred"/>
+    <functioncall functionName="context"/>
+    <functioncall functionName="data2"/>
+    <functioncall functionName="data_"/>
+    <functioncall functionName="error"/>
+    <functioncall functionName="handle_handshake"/>
+    <functioncall functionName="handle_read"/>
+    <functioncall functionName="handle_write"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="io_service"/>
+    <functioncall functionName="lowest_layer"/>
+    <functioncall functionName="max_length"/>
+    <functioncall functionName="p"/>
+    <functioncall functionName="processRequest"/>
+    <functioncall functionName="server"/>
+    <functioncall functionName="socket_"/>
+    <functioncall functionName="strlen"/>
+    <functioncall functionName="this"/>
+  </FileInfo>
+</analyzerinfo>

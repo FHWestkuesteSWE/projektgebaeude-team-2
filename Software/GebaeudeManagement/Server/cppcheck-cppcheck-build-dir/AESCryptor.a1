@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="1278288484">
+        <error id="noExplicitConstructor" severity="style" msg="Class &apos;AESCryptor&apos; has a constructor with 1 argument that is not explicit." verbose="Class &apos;AESCryptor&apos; has a constructor with 1 argument that is not explicit. Such constructors should in general be explicit for type safety reasons. Using the explicit keyword in the constructor means some mistakes when using the class can be avoided." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\AESCryptor.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\AESCryptor.h" line="20" column="9"/>
+            <symbol>AESCryptor</symbol>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="GenerateSaveKeys" lineNumber="30"/>
+    <functiondecl functionName="Encode" lineNumber="46"/>
+    <functiondecl functionName="Decode" lineNumber="76"/>
+    <functioncall functionName="AESCryptor"/>
+    <functioncall functionName="Attach"/>
+    <functioncall functionName="BLOCKSIZE"/>
+    <functioncall functionName="DEFAULT_KEYLENGTH"/>
+    <functioncall functionName="FileSink"/>
+    <functioncall functionName="FileSource"/>
+    <functioncall functionName="GenerateBlock"/>
+    <functioncall functionName="HexDecoder"/>
+    <functioncall functionName="MessageEnd"/>
+    <functioncall functionName="Put"/>
+    <functioncall functionName="SetKeyWithIV"/>
+    <functioncall functionName="StreamTransformationFilter"/>
+    <functioncall functionName="StringSink"/>
+    <functioncall functionName="d"/>
+    <functioncall functionName="data"/>
+    <functioncall functionName="decoded"/>
+    <functioncall functionName="e"/>
+    <functioncall functionName="encoded"/>
+    <functioncall functionName="hex"/>
+    <functioncall functionName="iv"/>
+    <functioncall functionName="key"/>
+    <functioncall functionName="keypath"/>
+    <functioncall functionName="keys"/>
+    <functioncall functionName="private:"/>
+    <functioncall functionName="s"/>
+    <functioncall functionName="size"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="source"/>
+    <functioncall functionName="string"/>
+    <functioncall functionName="substr"/>
+    <functioncall functionName="true"/>
+  </FileInfo>
+</analyzerinfo>

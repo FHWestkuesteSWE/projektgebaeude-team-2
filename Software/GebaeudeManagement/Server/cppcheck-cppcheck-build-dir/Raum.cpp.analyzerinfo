@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2631919693">
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;p_name&apos; should be passed by const reference." verbose="Parameter &apos;p_name&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Raum.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\TemperaturSensor.h" line="16" column="28"/>
+            <symbol>p_name</symbol>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="getAllObjects" lineNumber="5"/>
+    <functiondecl functionName="addFenster" lineNumber="18"/>
+    <functiondecl functionName="addLampe" lineNumber="52"/>
+    <functiondecl functionName="getRoomObj" lineNumber="126"/>
+    <functiondecl functionName="getName" lineNumber="144"/>
+    <functiondecl functionName="getNumOfFenster" lineNumber="148"/>
+    <functiondecl functionName="getNumOfLampe" lineNumber="152"/>
+    <functioncall functionName="Actor"/>
+    <functioncall functionName="Fenster"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="Raum"/>
+    <functioncall functionName="addFenster"/>
+    <functioncall functionName="addLampe"/>
+    <functioncall functionName="begin"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="catch"/>
+    <functioncall functionName="clear"/>
+    <functioncall functionName="compare"/>
+    <functioncall functionName="end"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="fenster"/>
+    <functioncall functionName="fensterName"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="getAllObjects"/>
+    <functioncall functionName="getName"/>
+    <functioncall functionName="getRoomObj"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="lampe"/>
+    <functioncall functionName="lampeName"/>
+    <functioncall functionName="lenghtLampArr"/>
+    <functioncall functionName="lengthFensterArr"/>
+    <functioncall functionName="name"/>
+    <functioncall functionName="numOfFens"/>
+    <functioncall functionName="numOfFenster"/>
+    <functioncall functionName="numOfLampe"/>
+    <functioncall functionName="numOflamp"/>
+    <functioncall functionName="p_name"/>
+    <functioncall functionName="push_back"/>
+    <functioncall functionName="roomName"/>
+    <functioncall functionName="roomObj_ptr"/>
+    <functioncall functionName="setName"/>
+    <functioncall functionName="setState"/>
+    <functioncall functionName="size"/>
+    <functioncall functionName="this"/>
+    <functioncall functionName="what"/>
+  </FileInfo>
+</analyzerinfo>

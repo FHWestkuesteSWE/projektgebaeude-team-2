@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="3531506109">
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;roomFound&apos; can be reduced." verbose="The scope of the variable &apos;roomFound&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Raum.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Raum.cpp" line="128" column="7"/>
+            <symbol>roomFound</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;p_name&apos; should be passed by const reference." verbose="Parameter &apos;p_name&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Raum.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\TemperaturSensor.h" line="16" column="28"/>
+            <symbol>p_name</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;roomFound&apos; is assigned a value that is never used." verbose="Variable &apos;roomFound&apos; is assigned a value that is never used." cwe="563">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Raum.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Raum.cpp" line="128" column="17"/>
+            <symbol>roomFound</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;roomFound&apos; is assigned a value that is never used." verbose="Variable &apos;roomFound&apos; is assigned a value that is never used." cwe="563">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Raum.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Raum.cpp" line="133" column="14"/>
+            <symbol>roomFound</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;roomFound&apos; is assigned a value that is never used." verbose="Variable &apos;roomFound&apos; is assigned a value that is never used." cwe="563">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Raum.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\Raum.cpp" line="138" column="14"/>
+            <symbol>roomFound</symbol>
+        </error>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="getAllObjects" lineNumber="5"/>
+    <functiondecl functionName="addFenster" lineNumber="18"/>
+    <functiondecl functionName="addLampe" lineNumber="52"/>
+    <functiondecl functionName="getRoomObj" lineNumber="126"/>
+    <functiondecl functionName="getName" lineNumber="146"/>
+    <functiondecl functionName="getNumOfFenster" lineNumber="150"/>
+    <functiondecl functionName="getNumOfLampe" lineNumber="154"/>
+    <functioncall functionName="Actor"/>
+    <functioncall functionName="Fenster"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="Raum"/>
+    <functioncall functionName="addFenster"/>
+    <functioncall functionName="addLampe"/>
+    <functioncall functionName="begin"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="catch"/>
+    <functioncall functionName="clear"/>
+    <functioncall functionName="compare"/>
+    <functioncall functionName="end"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="fenster"/>
+    <functioncall functionName="fensterName"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="getAllObjects"/>
+    <functioncall functionName="getName"/>
+    <functioncall functionName="getRoomObj"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="lampe"/>
+    <functioncall functionName="lampeName"/>
+    <functioncall functionName="lenghtLampArr"/>
+    <functioncall functionName="lengthFensterArr"/>
+    <functioncall functionName="name"/>
+    <functioncall functionName="numOfFens"/>
+    <functioncall functionName="numOfFenster"/>
+    <functioncall functionName="numOfLampe"/>
+    <functioncall functionName="numOflamp"/>
+    <functioncall functionName="p_name"/>
+    <functioncall functionName="push_back"/>
+    <functioncall functionName="roomName"/>
+    <functioncall functionName="roomObj_ptr"/>
+    <functioncall functionName="setName"/>
+    <functioncall functionName="setState"/>
+    <functioncall functionName="size"/>
+    <functioncall functionName="this"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="what"/>
+  </FileInfo>
+</analyzerinfo>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="4281936759">
+        <error id="noCopyConstructor" severity="warning" msg="Class &apos;UnitTest&apos; does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s)." verbose="Class &apos;UnitTest&apos; does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s)." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\UnitTest.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\UnitTest.cpp" line="35" column="11"/>
+            <symbol>UnitTest</symbol>
+        </error>
+        <error id="noOperatorEq" severity="warning" msg="Class &apos;UnitTest&apos; does not have a operator= which is recommended since it has dynamic memory/resource allocation(s)." verbose="Class &apos;UnitTest&apos; does not have a operator= which is recommended since it has dynamic memory/resource allocation(s)." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\UnitTest.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\UnitTest.cpp" line="35" column="11"/>
+            <symbol>UnitTest</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;p_name&apos; should be passed by const reference." verbose="Parameter &apos;p_name&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\UnitTest.cpp" file="C:\Users\Rinaldy\Desktop\projektgebaeude-team-2\Software\GebaeudeManagement\Server\TemperaturSensor.h" line="16" column="28"/>
+            <symbol>p_name</symbol>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/Raum.h:24:2" call-funcname="Raum" call-argnr="2" file="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/UnitTest.cpp" line="51" col="26" call-argexpr="fensterName" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/Raum.h:24:2" call-funcname="Raum" call-argnr="4" file="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/UnitTest.cpp" line="51" col="26" call-argexpr="lampeName" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/Raum.h:24:2" call-funcname="Raum" call-argnr="2" file="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/UnitTest.cpp" line="61" col="26" call-argexpr="fensterName" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/Raum.h:24:2" call-funcname="Raum" call-argnr="4" file="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/UnitTest.cpp" line="61" col="26" call-argexpr="lampeName" call-argvaluetype="7" call-argvalue="0"/>  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="runUnitTest" lineNumber="7"/>
+    <functiondecl functionName="initCorrectRoom" lineNumber="44"/>
+    <functiondecl functionName="initWrongRoom" lineNumber="54"/>
+    <functioncall functionName="Actor"/>
+    <functioncall functionName="Fenster"/>
+    <functioncall functionName="Raum"/>
+    <functioncall functionName="UnitTest"/>
+    <functioncall functionName="catch"/>
+    <functioncall functionName="fensterName"/>
+    <functioncall functionName="initCorrectRoom"/>
+    <functioncall functionName="initWrongRoom"/>
+    <functioncall functionName="lampeName"/>
+    <functioncall functionName="numOfFenster"/>
+    <functioncall functionName="numOfLampe"/>
+    <functioncall functionName="sizeof"/>
+  </FileInfo>
+</analyzerinfo>

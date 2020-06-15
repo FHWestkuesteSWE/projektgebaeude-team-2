@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2325467007">
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/SSLServer.h:21:7" my-argnr="2" my-argname="io_service" file="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/SSLServer.cpp" line="57" col="19" value="0"/>
+    <unsafe-usage my-id="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/SSLServer.h:21:7" my-argnr="3" my-argname="acceptor" file="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/SSLServer.cpp" line="57" col="32" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/SSLServer.h:21:7" my-argnr="2" my-argname="io_service" file="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/SSLServer.cpp" line="57" col="19" value="0"/>
+    <unsafe-usage my-id="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/SSLServer.h:21:7" my-argnr="3" my-argname="acceptor" file="C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/SSLServer.cpp" line="57" col="32" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="start" lineNumber="26"/>
+    <functiondecl functionName="start_accept" lineNumber="36"/>
+    <functiondecl functionName="handle_accept" lineNumber="45"/>
+    <functioncall functionName="BasicServer"/>
+    <functioncall functionName="SSLServer"/>
+    <functioncall functionName="Session"/>
+    <functioncall functionName="a"/>
+    <functioncall functionName="acceptor"/>
+    <functioncall functionName="async_accept"/>
+    <functioncall functionName="atoi"/>
+    <functioncall functionName="bind"/>
+    <functioncall functionName="context_"/>
+    <functioncall functionName="endpoint"/>
+    <functioncall functionName="error"/>
+    <functioncall functionName="handle_accept"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="io_service"/>
+    <functioncall functionName="io_service_"/>
+    <functioncall functionName="max_length"/>
+    <functioncall functionName="new_session"/>
+    <functioncall functionName="pem"/>
+    <functioncall functionName="port"/>
+    <functioncall functionName="run"/>
+    <functioncall functionName="set_options"/>
+    <functioncall functionName="single_dh_use"/>
+    <functioncall functionName="socket"/>
+    <functioncall functionName="sslv23"/>
+    <functioncall functionName="start"/>
+    <functioncall functionName="start_accept"/>
+    <functioncall functionName="this"/>
+    <functioncall functionName="use_certificate_chain_file"/>
+    <functioncall functionName="use_private_key_file"/>
+    <functioncall functionName="use_tmp_dh_file"/>
+    <functioncall functionName="v4"/>
+  </FileInfo>
+</analyzerinfo>

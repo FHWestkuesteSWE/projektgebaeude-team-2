@@ -1,0 +1,14 @@
+Actor.a1:Debug|Win32:C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/Actor.cpp
+AESCryptor.a1:Debug|Win32:C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/AESCryptor.cpp
+BasicServer.a1:Debug|Win32:C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/BasicServer.cpp
+Fenster.a1:Debug|Win32:C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/Fenster.cpp
+KontakSensor.a1:Debug|Win32:C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/KontakSensor.cpp
+Lampe.a1:Debug|Win32:C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/Lampe.cpp
+main.a1:Debug|Win32:C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/main.cpp
+Raum.a1:Debug|Win32:C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/Raum.cpp
+Sensor.a1:Debug|Win32:C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/Sensor.cpp
+Server.a1:Debug|Win32:C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/Server.cpp
+Session.a1:Debug|Win32:C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/Session.cpp
+SSLServer.a1:Debug|Win32:C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/SSLServer.cpp
+TemperaturSensor.a1:Debug|Win32:C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/TemperaturSensor.cpp
+UnitTest.a1:Debug|Win32:C:/Users/Rinaldy/Desktop/projektgebaeude-team-2/Software/GebaeudeManagement/Server/UnitTest.cpp

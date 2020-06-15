@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="1.90"/>
+    <errors>
+        <error id="noExplicitConstructor" severity="style" msg="Class &amp;#039;AESCryptor&amp;#039; has a constructor with 1 argument that is not explicit." verbose="Class &amp;#039;AESCryptor&amp;#039; has a constructor with 1 argument that is not explicit. Such constructors should in general be explicit for type safety reasons. Using the explicit keyword in the constructor means some mistakes when using the class can be avoided." sinceDate="15.06.2020">
+            <location file="AESCryptor.h" line="20"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &amp;#039;p_name&amp;#039; should be passed by const reference." verbose="Parameter &amp;#039;p_name&amp;#039; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." sinceDate="15.06.2020">
+            <location file="Fenster.cpp" line="14"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &amp;#039;p_name&amp;#039; should be passed by const reference." verbose="Parameter &amp;#039;p_name&amp;#039; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." sinceDate="15.06.2020">
+            <location file="KontakSensor.cpp" line="17"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &amp;#039;p_name&amp;#039; should be passed by const reference." verbose="Parameter &amp;#039;p_name&amp;#039; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." sinceDate="15.06.2020">
+            <location file="Lampe.cpp" line="20"/>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &amp;#039;processRequest&amp;#039; overrides a function in a base class but is not marked with a &amp;#039;override&amp;#039; specifier." verbose="The function &amp;#039;processRequest&amp;#039; overrides a function in a base class but is not marked with a &amp;#039;override&amp;#039; specifier." sinceDate="15.06.2020">
+            <location file="Server.h" line="34" info="Function in derived class"/>
+            <location file="BasicServer.h" line="17" info="Virtual function in base class"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &amp;#039;p_name&amp;#039; should be passed by const reference." verbose="Parameter &amp;#039;p_name&amp;#039; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." sinceDate="15.06.2020">
+            <location file="TemperaturSensor.h" line="16"/>
+        </error>
+        <error id="noCopyConstructor" severity="warning" msg="Class &amp;#039;Server&amp;#039; does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s)." verbose="Class &amp;#039;Server&amp;#039; does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s)." sinceDate="15.06.2020">
+            <location file="Server.cpp" line="11"/>
+        </error>
+        <error id="noOperatorEq" severity="warning" msg="Class &amp;#039;Server&amp;#039; does not have a operator= which is recommended since it has dynamic memory/resource allocation(s)." verbose="Class &amp;#039;Server&amp;#039; does not have a operator= which is recommended since it has dynamic memory/resource allocation(s)." sinceDate="15.06.2020">
+            <location file="Server.cpp" line="11"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;location_next_char&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;location_next_char&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." sinceDate="15.06.2020">
+            <location file="Server.cpp" line="152"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;location_last_char&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;location_last_char&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." sinceDate="15.06.2020">
+            <location file="Server.cpp" line="153"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;numOfLamp&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;numOfLamp&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." sinceDate="15.06.2020">
+            <location file="Server.cpp" line="250"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;location_next_char&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;location_next_char&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." sinceDate="15.06.2020">
+            <location file="Server.cpp" line="253"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;numOfFens&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;numOfFens&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." sinceDate="15.06.2020">
+            <location file="Server.cpp" line="359"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;tempVal&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;tempVal&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." sinceDate="15.06.2020">
+            <location file="Server.cpp" line="400"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;numOfLamp&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;numOfLamp&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." sinceDate="15.06.2020">
+            <location file="Server.cpp" line="456"/>
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &amp;#039;actorFound&amp;#039; can be reduced." verbose="The scope of the variable &amp;#039;actorFound&amp;#039; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &amp;#039;i&amp;#039; can be reduced:&#10;void f(int x)&#10;{&#10;    int i = 0;&#10;    if (x) {&#10;        // it&amp;#039;s safe to move &amp;#039;int i = 0;&amp;#039; here&#10;        for (int n = 0; n &amp;lt; 10; ++n) {&#10;            // it is possible but not safe to move &amp;#039;int i = 0;&amp;#039; here&#10;            do_something(&amp;amp;i);&#10;        }&#10;    }&#10;}&#10;When you see this message it is always safe to reduce the variable scope 1 level." sinceDate="15.06.2020">
+            <location file="Server.cpp" line="457"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &amp;#039;location_last_char&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;location_last_char&amp;#039; is assigned a value that is never used." sinceDate="15.06.2020">
+            <location file="Server.cpp" line="599"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Session::data_&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Session::data_&amp;#039; is not initialized in the constructor." sinceDate="15.06.2020">
+            <location file="Session.cpp" line="10"/>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &amp;#039;bytes_to_transfer&amp;#039; is assigned a value that is never used." verbose="Variable &amp;#039;bytes_to_transfer&amp;#039; is assigned a value that is never used." sinceDate="15.06.2020">
+            <location file="Session.cpp" line="52"/>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &amp;#039;p_name&amp;#039; should be passed by const reference." verbose="Parameter &amp;#039;p_name&amp;#039; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." sinceDate="15.06.2020">
+            <location file="TemperaturSensor.cpp" line="17"/>
+        </error>
+        <error id="noCopyConstructor" severity="warning" msg="Class &amp;#039;UnitTest&amp;#039; does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s)." verbose="Class &amp;#039;UnitTest&amp;#039; does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s)." sinceDate="15.06.2020">
+            <location file="UnitTest.cpp" line="35"/>
+        </error>
+        <error id="noOperatorEq" severity="warning" msg="Class &amp;#039;UnitTest&amp;#039; does not have a operator= which is recommended since it has dynamic memory/resource allocation(s)." verbose="Class &amp;#039;UnitTest&amp;#039; does not have a operator= which is recommended since it has dynamic memory/resource allocation(s)." sinceDate="15.06.2020">
+            <location file="UnitTest.cpp" line="35"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;runUnitTest&amp;#039; is never used." verbose="The function &amp;#039;runUnitTest&amp;#039; is never used." sinceDate="15.06.2020">
+            <location file="UnitTest.cpp" line="7"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Decode&amp;#039; is never used." verbose="The function &amp;#039;Decode&amp;#039; is never used." sinceDate="15.06.2020">
+            <location file="AESCryptor.cpp" line="76"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;Encode&amp;#039; is never used." verbose="The function &amp;#039;Encode&amp;#039; is never used." sinceDate="15.06.2020">
+            <location file="AESCryptor.cpp" line="46"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;GenerateSaveKeys&amp;#039; is never used." verbose="The function &amp;#039;GenerateSaveKeys&amp;#039; is never used." sinceDate="15.06.2020">
+            <location file="AESCryptor.cpp" line="30"/>
+        </error>
+    </errors>
+</results>
