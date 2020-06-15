@@ -104,13 +104,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>c:\Boost\boost_1_72_0</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\cryptopp820;c:\Boost\boost_1_72_0</AdditionalIncludeDirectories>
       <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>c:\Boost\boost_1_72_0\stage\x64\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\cryptopp820\Win32\Output\Debug;c:\Boost\boost_1_72_0\stage\x64\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="AESCryptor.cpp" />
     <ClCompile Include="BasicServer.cpp" />
     <ClCompile Include="Fenster.cpp" />
     <ClCompile Include="KontakSensor.cpp" />
@@ -164,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
+    <ClInclude Include="AESCryptor.h" />
     <ClInclude Include="BasicServer.h" />
     <ClInclude Include="ErrorCode.h" />
     <ClInclude Include="Fenster.h" />
